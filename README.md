@@ -3,7 +3,7 @@ Contributors: Alphawolf
 Donate link: http://www.schloebe.de/donate/
 Tags: admin, ajax, management, cms, post, pages, category, inline, media, revision, link, bookmark, drag-and-drop, drag drop
 Requires at least: 3.2
-Tested up to: 3.6
+Tested up to: 3.9
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -54,7 +54,7 @@ It adds some icons to the posts/pages management panel with **AJAX-driven** CMS-
 * English
 * German (de_DE) (Thanks to me ;-))
 * Spanish (es_ES) (Thanks for contributing spanish language goes to Karin Sequen / http://www.es-xchange.com)
-* French (fr_FR) (Thanks for contributing french language goes to Gilles Witteza�le / http://gilles.wittezaele.fr/blog/)
+* French (fr_FR) (Thanks for contributing french language goes to Gilles Wittezaële / http://gilles.wittezaele.fr/blog/)
 * Hebrew (he_IL) (Thanks for contributing hebrew language goes to Meir Pinto / http://www.pintophotography.com/wp/)
 * Japanese (ja) (Thanks for contributing japanese language goes to kzh / http://homepage1.nifty.com/)
 * Persian(farsi) (fa_IR) (Thanks for contributing persian language goes to Amir Ashtiani / http://ouo.ir)
@@ -73,6 +73,7 @@ It adds some icons to the posts/pages management panel with **AJAX-driven** CMS-
 * Ukranian (uk_UA) (Thanks for contributing ukranian language goes to ghost / http://antsar.info/)
 * Romanian (ro_RO) (Thanks for contributing romanian language goes to Anunturi Jibo / http://www.jibo.ro)
 * Slovak (sk_SK) (Thanks for contributing slovak language goes to Viliam Brozman / http://www.brozman.sk/blog)
+* Slovenian (sl_SI) (Thanks for contributing slovenian language goes to Mitja Mihelič)
 
 == Frequently Asked Questions ==
 
@@ -86,11 +87,11 @@ If you have suggestions please let me know by dropping me a line via e-mail or t
 
 = History? =
 
-Please visit [the official website](http://www.schloebe.de/wordpress/admin-management-xtended-plugin/#english "Admin Management Xtended") for the latest information on this plugin.
+Please visit [the official website](http://www.schloebe.de/wordpress/admin-management-xtended-plugin/ "Admin Management Xtended") for the latest information on this plugin.
 
 = Where can I get more information? =
 
-Please visit [the official website](http://www.schloebe.de/wordpress/admin-management-xtended-plugin/#english "Admin Management Xtended") for the latest information on this plugin.
+Please visit [the official website](http://www.schloebe.de/wordpress/admin-management-xtended-plugin/ "Admin Management Xtended") for the latest information on this plugin.
 
 == Installation ==
 
@@ -100,6 +101,17 @@ Please visit [the official website](http://www.schloebe.de/wordpress/admin-manag
 4. Installation finished.
 
 == Changelog ==
+
+= 2.3.9.2 =
+* FIXED: Localization update
+
+= 2.3.9.1 =
+* NEW: Added slovenian localization (Thanks to Mitja Mihelič!)
+* FIXED: Improved localization
+
+= 2.3.9 =
+* NEW: Prepwork for Language Packs
+* FIXED: Improved
 
 = 2.3.8 =
 * FIXED: PHP Notice and CSS fixes
@@ -307,11 +319,6 @@ Please visit [the official website](http://www.schloebe.de/wordpress/admin-manag
 
 = 0.7 =
 * Plugin released
-
-== Upgrade Notice ==
-
-= 2.1.1 =
-The save button on editing page title stopped working (Thanks to Michael Johnston!)
 
 == Other Notes ==
 
