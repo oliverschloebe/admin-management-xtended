@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Admin Management Xtended\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-10-17 20:47+0000\n"
-"PO-Revision-Date: Sat Sep 12 2015 16:47:48 GMT+0200 (Central Europe Daylight "
+"PO-Revision-Date: Sat Sep 12 2015 16:45:00 GMT+0200 (Central Europe Daylight "
 "Time)\n"
 "Last-Translator: Oliver Schlöbe <webmaster@schloebe.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -60,10 +60,24 @@ msgstr ""
 msgid "Uncategorized"
 msgstr ""
 
+#: ../post-functions.php:185 ../post-functions.php:185 ../general-functions.php:
+#: 515 ../general-functions.php:515 ../general-functions.php:519 ../general-
+#: functions.php:519
+msgid "Stick this post to the front page"
+msgstr "Diesen Beitrag auf der Startseite oben festhalten"
+
 # Doesnt need to be translated.
 #: ../media-functions.php:56
 msgid "Description"
 msgstr ""
+
+#. translators: plugin header field 'Name'
+msgid "Admin Management Xtended"
+msgstr "Admin Management Xtended"
+
+#. URI of the plugin
+msgid "http://www.schloebe.de/wordpress/admin-management-xtended-plugin"
+msgstr "http://www.schloebe.de/wordpress/admin-management-xtended-plugin"
 
 #. translators: plugin header field 'Description'
 msgid ""
@@ -74,6 +88,36 @@ msgid ""
 "open/closed, hide draft posts, change media order, change media description "
 "inline, toggling link visibility, changing link categories"
 msgstr ""
+
+#. translators: plugin header field 'Author'
+msgid "Oliver Schl&ouml;be"
+msgstr "Oliver Schl&ouml;be"
+
+#. Author URI of the plugin
+msgid "http://www.schloebe.de"
+msgstr "http://www.schloebe.de"
+
+#: ../admin-management-xtended.php:217
+#, php-format
+msgid ""
+"<strong>Admin Management Xtended</strong> 2.4.0 and above require at least "
+"WordPress 4.3! If you're still using a WP version prior to 4.3, please <a "
+"href='%s'>use Admin Management Xtended version 2.3.9.4</a>! Consider "
+"updating to the latest WP version for your own safety!"
+msgstr ""
+"<strong>Admin Management Xtended</strong> in der Version 2.4.0 benötigt "
+"mindestens WordPress 4.3! Wenn Sie WordPress älter als Version 4.3 nutzen, "
+"<a href='%s'>verwenden Sie bitte Admin Management Xtended in der Version 2.3."
+"9.4!</a> Updaten Sie auf die aktuellste WP-Version zu Ihrer eigenen "
+"Sicherheit!"
+
+#: ../general-functions.php:185
+msgid "Check All"
+msgstr "Alle ausw&auml;hlen"
+
+#: ../general-functions.php:185
+msgid "Uncheck All"
+msgstr "Alle abw&auml;hlen"
 
 # Doesnt need to be translated.
 #: ../general-functions.php:316 ../general-functions.php:334
@@ -137,12 +181,6 @@ msgstr "Aktionen"
 msgid "Toggle visibility"
 msgstr "Sichtbarkeit umschalten"
 
-#: ../post-functions.php:185 ../post-functions.php:185 ../general-functions.php:
-#: 515 ../general-functions.php:515 ../general-functions.php:519 ../general-
-#: functions.php:519
-msgid "Stick this post to the front page"
-msgstr "Diesen Beitrag auf der Startseite oben festhalten"
-
 #: ../post-functions.php:188 ../post-functions.php:188 ../page-functions.php:83 ..
 #: page-functions.php:83
 msgid "Change Publication Date"
@@ -162,36 +200,6 @@ msgstr "Kommentar-Status auf offen/geschlossen umschalten"
 #: ../media-functions.php:41
 msgid "Media Order"
 msgstr "Medienreihenfolge"
-
-#. translators: plugin header field 'Name'
-msgid "Admin Management Xtended"
-msgstr "Admin Management Xtended"
-
-#. URI of the plugin
-msgid "http://www.schloebe.de/wordpress/admin-management-xtended-plugin"
-msgstr "http://www.schloebe.de/wordpress/admin-management-xtended-plugin"
-
-#. translators: plugin header field 'Author'
-msgid "Oliver Schl&ouml;be"
-msgstr "Oliver Schl&ouml;be"
-
-#. Author URI of the plugin
-msgid "http://www.schloebe.de"
-msgstr "http://www.schloebe.de"
-
-#: ../admin-management-xtended.php:217
-#, php-format
-msgid ""
-"<strong>Admin Management Xtended</strong> 2.4.0 and above require at least "
-"WordPress 4.3! If you're still using a WP version prior to 4.3, please <a "
-"href='%s'>use Admin Management Xtended version 2.3.9.4</a>! Consider "
-"updating to the latest WP version for your own safety!"
-msgstr ""
-"<strong>Admin Management Xtended</strong> in der Version 2.4.0 benötigt "
-"mindestens WordPress 4.3! Wenn Sie WordPress älter als Version 4.3 nutzen, "
-"<a href='%s'>verwenden Sie bitte Admin Management Xtended in der Version 2.3."
-"9.4!</a> Updaten Sie auf die aktuellste WP-Version zu Ihrer eigenen "
-"Sicherheit!"
 
 #: ../admin-management-xtended.php:229
 msgid ""
@@ -225,14 +233,6 @@ msgstr "Seiten-Slug bearbeiten"
 #: php:551
 msgid "Plugin: Exclude Pages - Exclude page from navigation"
 msgstr "Plugin: Exclude Pages - Seite aus Navigation ausschließen"
-
-#: ../general-functions.php:185
-msgid "Check All"
-msgstr "Alle ausw&auml;hlen"
-
-#: ../general-functions.php:185
-msgid "Uncheck All"
-msgstr "Alle abw&auml;hlen"
 
 #: ../general-functions.php:191 ../general-functions.php:295 ../general-functions.
 #: php:343 ../general-functions.php:765 ../link-functions.php:114
@@ -306,12 +306,12 @@ msgstr "Zeige nicht sichtbare Artikel"
 # Doesnt need to be translated.
 #: ../general-functions.php:743 ../general-functions.php:756
 msgid "Post Revisions"
-msgstr ""
+msgstr "Artikel&uuml;berarbeitungen"
 
 # Doesnt need to be translated.
 #: ../general-functions.php:754 ../general-functions.php:758
 msgid "Page Revisions"
-msgstr ""
+msgstr "Seiten&uuml;berarbeitungen"
 
 #: ../general-functions.php:765
 msgid "Post"

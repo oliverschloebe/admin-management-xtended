@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Admin Management Xtended\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/admin-management-xtended\n"
 "POT-Creation-Date: 2008-10-17 20:47+0000\n"
-"POT-Revision-Date: Sat Sep 12 2015 16:41:54 GMT+0200 (Central Europe "
+"POT-Revision-Date: Sat Sep 12 2015 16:37:51 GMT+0200 (Central Europe "
 "Daylight Time)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -127,10 +127,10 @@ msgstr ""
 #: ../admin-management-xtended.php:217
 #, php-format
 msgid ""
-"<strong>Admin Management Xtended</strong> 2.4.0 and above require at least "
-"WordPress 4.3! If you're still using a WP version prior to 4.3, please <a "
-"href='%s'>use Admin Management Xtended version 2.3.9.4</a>! Consider "
-"updating to the latest WP version for your own safety!"
+"<strong>Admin Management Xtended</strong> 2.2.3 and above require at least "
+"WordPress 3.2! If you're still using a WP version prior to 3.2, please <a "
+"href='%s'>use Admin Management Xtended version 2.1.5</a>! Consider updating "
+"to the latest WP version for your own safety!"
 msgstr ""
 
 #: ../admin-management-xtended.php:229
