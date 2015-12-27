@@ -77,6 +77,7 @@ It adds some icons to the posts/pages management panel with **AJAX-driven** CMS-
 * Slovak (sk_SK) (Thanks for contributing slovak language goes to Viliam Brozman / http://www.brozman.sk/blog)
 * Slovenian (sl_SI) (Thanks for contributing slovenian language goes to Mitja Mihelič)
 * Serbo-Croatian (sr_RS) (Thanks for contributing serbo-croatian language goes to Andrijana Nikolic / http://webhostinggeeks.com/)
+* Chinese (zh_CN) (Thanks for contributing chinese language goes to 斌果)
 
 == Frequently Asked Questions ==
 
