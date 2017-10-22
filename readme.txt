@@ -1,9 +1,9 @@
 ﻿=== Admin Management Xtended ===
 Contributors: Alphawolf
-Donate link: http://www.schloebe.de/donate/
-Tags: admin, ajax, management, cms, post, pages, category, inline, media, revision, link, bookmark, drag-and-drop, drag drop
+Donate link: https://www.schloebe.de/donate/
+Tags: admin, ajax, management, cms, post, pages, category, inline, media, revision, link, bookmark, drag-and-drop, drag drop, 
 Requires at least: 4.3
-Tested up to: 4.4.9999
+Tested up to: 4.8.9999
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -16,11 +16,9 @@ As a whole, the new WordPress Admin panel is organized fairly well, however when
 
 It adds some icons to the posts/pages management panel with **AJAX-driven** CMS-known functions like toggling post/page visibility, changing publication date and title **without having to open the edit screens or reload the page**, **plus changing page order with drag'n'drop**, inline category management and inline tag management, plus much more.
 
-[Developer on Google+](https://plus.google.com/118074611982254715031 "Developer on Google+") | [Developer on Twitter](http://twitter.com/wpseek "Developer on Twitter")
+[Developer on Twitter](http://twitter.com/wpseek "Developer on Twitter")
 
-[Become A Patron, Support The Developer.](http://www.patreon.com/oliver_schloebe "Become A Patron, Support The Developer.")
-
-**Looking for more WordPress plugins? Visit [www.schloebe.de/portfolio/](http://www.schloebe.de/portfolio/)**
+**Looking for more WordPress plugins? Visit [www.schloebe.de/portfolio/](https://www.schloebe.de/portfolio/)**
 
 [vimeo http://vimeo.com/9598749]
 
@@ -91,11 +89,11 @@ If you have suggestions please let me know by dropping me a line via e-mail or t
 
 = History? =
 
-Please visit [the official website](http://www.schloebe.de/wordpress/admin-management-xtended-plugin/ "Admin Management Xtended") for the latest information on this plugin.
+Please visit [the official website](https://www.schloebe.de/wordpress/admin-management-xtended-plugin/ "Admin Management Xtended") for the latest information on this plugin.
 
 = Where can I get more information? =
 
-Please visit [the official website](http://www.schloebe.de/wordpress/admin-management-xtended-plugin/ "Admin Management Xtended") for the latest information on this plugin.
+Please visit [the official website](https://www.schloebe.de/wordpress/admin-management-xtended-plugin/ "Admin Management Xtended") for the latest information on this plugin.
 
 == Installation ==
 
@@ -105,6 +103,13 @@ Please visit [the official website](http://www.schloebe.de/wordpress/admin-manag
 4. Installation finished.
 
 == Changelog ==
+
+= 2.4.1.1 =
+* FIXED: WordPress 4.8 compatibility
+
+= 2.4.1 =
+* FIXED: WordPress 4.7 compatibility
+* FIXED: PHP 7 compatibility
 
 = 2.4.0.1 =
 * FIXED: Privilege escalation issue fixed (Thanks Kacper Szurek!)
@@ -352,7 +357,7 @@ Since Version 1.0 it is possible to change page order via drag'n'drop. Currently
 
 == Screenshots ==
 
-[For screenshots see here](http://www.schloebe.de/wordpress/admin-management-xtended-plugin/#screenshots)
+[For screenshots see here](https://www.schloebe.de/wordpress/admin-management-xtended-plugin/#screenshots)
 
 = Video Demo (quite old, but you get an impression) =
 
