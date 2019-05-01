@@ -8,7 +8,7 @@
  */
 
 /*
- * Copyright 2008-2015 Oliver Schlöbe (email : scripts@schloebe.de)
+ * Copyright 2008-2019 Oliver Schlöbe (email : scripts@schloebe.de)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -134,7 +134,7 @@ function ame_get_pageorder() {
 	}
 	
 	$pageorder2 = $_POST['pageordertable2'];
-	parse_str( $pageorder2 );
+	parse_str( $pageorder2, $pageordertable );
 	$i = 0;
 	foreach ( $pageordertable as $value ) {
 		$has_parent = get_post( $value );
