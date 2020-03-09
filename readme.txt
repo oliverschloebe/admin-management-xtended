@@ -1,12 +1,12 @@
-﻿=== Admin Management Xtended ===
+=== Admin Management Xtended ===
 Contributors: Alphawolf
 Donate link: https://www.schloebe.de/donate/
 Tags: admin, ajax, management, cms, post, pages, category, inline, media, revision, link, bookmark, drag-and-drop, drag drop, 
 Requires at least: 4.3
-Tested up to: 5.3.9999
+Tested up to: 5.4.9999
 Stable tag: trunk
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Adds AJAX-driven options to some admin management pages with CMS-known functions without having to open the edit screens.
 
@@ -16,11 +16,11 @@ As a whole, the new WordPress Admin panel is organized fairly well, however when
 
 It adds some icons to the posts/pages management panel with **AJAX-driven** CMS-known functions like toggling post/page visibility, changing publication date and title **without having to open the edit screens or reload the page**, **plus changing page order with drag'n'drop**, inline category management and inline tag management, plus much more.
 
-[Developer on Twitter](http://twitter.com/wpseek "Developer on Twitter")
+[Developer on Twitter](https://twitter.com/wpseek "Developer on Twitter")
 
 **Looking for more WordPress plugins? Visit [www.schloebe.de/portfolio/](https://www.schloebe.de/portfolio/)**
 
-[vimeo http://vimeo.com/9598749]
+[vimeo https://vimeo.com/9598749]
 
 **Features:**
 
@@ -44,8 +44,8 @@ It adds some icons to the posts/pages management panel with **AJAX-driven** CMS-
 * Change link categories inline on link management page
 * Toggle link visibility with a single click
 * Time now can be chosen in the js popout calendar aswell
-* Change *post order* inline in post management view (Props [Jeff Cole](http://www.coolcave.co.uk/ "Jeff Cole")
-* Support for [Exclude Pages](http://wordpress.org/extend/plugins/exclude-pages/ "Exclude Pages") plugin
+* Change *post order* inline in post management view (Props [Jeff Cole](https://www.coolcave.co.uk/ "Jeff Cole")
+* Support for [Exclude Pages](https://wordpress.org/extend/plugins/exclude-pages/ "Exclude Pages") plugin
 * Entirely possible to be localized, including the JS calendar
 * Two different button sets available
 
@@ -53,28 +53,28 @@ It adds some icons to the posts/pages management panel with **AJAX-driven** CMS-
 
 * English
 * German (de_DE) (Thanks to me ;-))
-* Spanish (es_ES) (Thanks for contributing spanish language goes to Karin Sequen / http://www.es-xchange.com)
-* French (fr_FR) (Thanks for contributing french language goes to Gilles Wittezaële / http://gilles.wittezaele.fr/blog/)
+* Spanish (es_ES) (Thanks for contributing spanish language goes to Karin Sequen / https://www.es-xchange.com)
+* French (fr_FR) (Thanks for contributing french language goes to Gilles Wittezaële / https://gilles.wittezaele.fr/blog/)
 * Hebrew (he_IL) (Thanks for contributing hebrew language goes to Atar4U / https://profiles.wordpress.org/ahrale/)
-* Japanese (ja) (Thanks for contributing japanese language goes to kzh / http://homepage1.nifty.com/)
-* Persian(farsi) (fa_IR) (Thanks for contributing persian language goes to Amir Ashtiani / http://ouo.ir)
-* Turkish (tr_TR) (Thanks for contributing turkish language goes to wolkanca / http://blog.wolkanca.com)
-* Danish (da_DK) (Thanks for contributing danish language goes to Mads Christian Jensen / http://mads.eu/)
+* Japanese (ja) (Thanks for contributing japanese language goes to kzh / https://homepage1.nifty.com/)
+* Persian(farsi) (fa_IR) (Thanks for contributing persian language goes to Amir Ashtiani / https://ouo.ir)
+* Turkish (tr_TR) (Thanks for contributing turkish language goes to wolkanca / https://blog.wolkanca.com)
+* Danish (da_DK) (Thanks for contributing danish language goes to Mads Christian Jensen / https://mads.eu/)
 * Czech (cs_CZ) (Thanks for contributing czech language goes to Josef Klimosz)
-* Dutch (nl_NL) (Thanks for contributing dutch language goes to Steven Goos / http://gooos.nl)
-* Polish (pl_PL) (Thanks for contributing polish language goes to Cezary Tomczyk / http://www.ikeris.com)
-* Russian (ru_RU) (Thanks for contributing polish language goes to Lecactus / http://lecactus.ru/)
-* Italian (it_IT) (Thanks for contributing italian language goes to Gianni Diurno / http://gidibao.net)
+* Dutch (nl_NL) (Thanks for contributing dutch language goes to Steven Goos / https://gooos.nl)
+* Polish (pl_PL) (Thanks for contributing polish language goes to Cezary Tomczyk / https://www.ikeris.com)
+* Russian (ru_RU) (Thanks for contributing polish language goes to Lecactus / https://lecactus.ru/)
+* Italian (it_IT) (Thanks for contributing italian language goes to Gianni Diurno / https://gidibao.net)
 * Traditional Chinese (zh_TW) (Thanks for contributing traditional chinese language goes to Disway Dong)
 * Brazilian Portuguese (pt_BR) (Thanks for contributing brazilian portuguese language goes to Prem Prakash)
-* Belorussian (by_BY) (Thanks for contributing belorussian language goes to Marcis Gasuns / http://www.fatcow.com)
-* Norwegian Nynorsk (nn_NO) (Thanks for contributing norwegian nynorsk language goes to H&aring;vard Grimelid / http://grx.no)
-* Norwegian Bokm&aring;l (nb_NO) (Thanks for contributing norwegian bokm&aring;l language goes to H&aring;vard Grimelid / http://grx.no/)
-* Ukranian (uk_UA) (Thanks for contributing ukranian language goes to ghost / http://antsar.info/)
-* Romanian (ro_RO) (Thanks for contributing romanian language goes to Anunturi Jibo / http://www.jibo.ro)
-* Slovak (sk_SK) (Thanks for contributing slovak language goes to Viliam Brozman / http://www.brozman.sk/blog)
+* Belorussian (by_BY) (Thanks for contributing belorussian language goes to Marcis Gasuns / https://www.fatcow.com)
+* Norwegian Nynorsk (nn_NO) (Thanks for contributing norwegian nynorsk language goes to H&aring;vard Grimelid / https://grx.no)
+* Norwegian Bokm&aring;l (nb_NO) (Thanks for contributing norwegian bokm&aring;l language goes to H&aring;vard Grimelid / https://grx.no/)
+* Ukranian (uk_UA) (Thanks for contributing ukranian language goes to ghost / https://antsar.info/)
+* Romanian (ro_RO) (Thanks for contributing romanian language goes to Anunturi Jibo / https://www.jibo.ro)
+* Slovak (sk_SK) (Thanks for contributing slovak language goes to Viliam Brozman / https://www.brozman.sk/blog)
 * Slovenian (sl_SI) (Thanks for contributing slovenian language goes to Mitja Mihelič)
-* Serbo-Croatian (sr_RS) (Thanks for contributing serbo-croatian language goes to Andrijana Nikolic / http://webhostinggeeks.com/)
+* Serbo-Croatian (sr_RS) (Thanks for contributing serbo-croatian language goes to Andrijana Nikolic / https://webhostinggeeks.com/)
 * Simplified Chinese (zh_CN) (Thanks for contributing chinese language goes to 斌果)
 
 == Frequently Asked Questions ==
@@ -203,7 +203,7 @@ Please visit [the official website](https://www.schloebe.de/wordpress/admin-mana
 * FIXED: Compatibility and security changes (props T. J. Brumfield!)
 
 = 2.2.1 =
-* FIXED: Problem with reordering post type ( post, pages, etc.) by direct input tool (props [Dikla Shwartz](http://opentech.co.il))
+* FIXED: Problem with reordering post type ( post, pages, etc.) by direct input tool (props [Dikla Shwartz](https://opentech.co.il))
 
 = 2.2 =
 * FIXED: Version 2.2 now requires WP 3.1
@@ -231,8 +231,8 @@ Please visit [the official website](https://www.schloebe.de/wordpress/admin-mana
 * FIXED: The save button on editing page title stopped working (Thanks to Michael Johnston!)
 
 = 2.1.0 =
-* NEW: Added support for [Exclude Pages](http://wordpress.org/extend/plugins/exclude-pages/ "Exclude Pages") plugin (thanks to danf for suggesting!)
-* NEW: Change post order inline in post management view (Props [Jeff Cole](http://www.coolcave.co.uk/ "Jeff Cole")
+* NEW: Added support for [Exclude Pages](https://wordpress.org/extend/plugins/exclude-pages/ "Exclude Pages") plugin (thanks to danf for suggesting!)
+* NEW: Change post order inline in post management view (Props [Jeff Cole](https://www.coolcave.co.uk/ "Jeff Cole")
 
 = 2.0.3 =
 * FIXED: Post tag auto-suggest returned 0 instead of suggested tags
@@ -368,4 +368,4 @@ Since Version 1.0 it is possible to change page order via drag'n'drop. Currently
 
 = Video Demo (quite old, but you get an impression) =
 
-[vimeo http://vimeo.com/9598749]
+[vimeo https://vimeo.com/9598749]
