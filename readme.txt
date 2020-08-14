@@ -104,6 +104,9 @@ Please visit [the official website](https://www.schloebe.de/wordpress/admin-mana
 
 == Changelog ==
 
+= 2.4.4 =
+* FIXED: WordPress 5.5 compatibility
+
 = 2.4.3 =
 * FIXED: WordPress 5.3 compatibility
 
