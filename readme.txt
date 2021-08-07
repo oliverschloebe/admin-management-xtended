@@ -3,7 +3,11 @@ Contributors: Alphawolf
 Donate link: https://www.schloebe.de/donate/
 Tags: admin, ajax, management, cms, post, pages, category, inline, media, revision, link, bookmark, drag-and-drop, drag drop, 
 Requires at least: 4.3
+<<<<<<< Updated upstream
 Tested up to: 5.7.9999
+=======
+Tested up to: 5.8.9999
+>>>>>>> Stashed changes
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
