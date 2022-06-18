@@ -7,7 +7,7 @@
  */
  
 /*
-Copyright 2008-2015 Oliver Schlöbe (email : scripts@schloebe.de)
+Copyright 2008-2022 Oliver Schlöbe (email : scripts@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -129,6 +129,8 @@ add_filter('manage_link-manager_columns', 'ame_column_link_categories', 2, 2);
  */
 function ame_toggle_linkvisibility() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
 	$posttype = 'link';
 	$linkid = intval( $_POST['link_id'] );
 	
@@ -153,6 +155,8 @@ function ame_toggle_linkvisibility() {
  */
 function ame_ajax_save_linkcategories() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_save_linkcategories' );
+	
 	$linkid = (int) $_POST['linkid'];
 	$ame_linkcats = $_POST['ame_linkcats'];
 	

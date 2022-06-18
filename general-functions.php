@@ -8,7 +8,7 @@
  */
 
 /*
- * Copyright 2008-2020 Oliver Schlöbe (email : scripts@schloebe.de)
+ * Copyright 2008-2022 Oliver Schlöbe (email : scripts@schloebe.de)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -71,6 +71,8 @@ function return_function($output) {
  */
 function ame_ajax_save_mediadesc() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+
 	$postid = intval( $_POST['postid'] );
 	$new_mediadesc = $_POST['new_mediadesc'];
 	
@@ -96,6 +98,8 @@ function ame_ajax_save_mediadesc() {
  */
 function ame_ajax_set_commentstatus() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+
 	$postid = intval( $_POST['postid'] );
 	$q_status = intval( $_POST['comment_status'] );
 	
@@ -127,6 +131,7 @@ function ame_ajax_set_commentstatus() {
  */
 function ame_get_pageorder() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
 	
 	if( !current_user_can( 'edit_pages' ) ) {
 		die();
@@ -155,6 +160,8 @@ function ame_get_pageorder() {
  */
 function ame_ajax_save_tags() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
 	$postid = intval( $_POST['postid'] );
 	$ame_tags = $_POST['new_tags'];
 	
@@ -200,6 +207,8 @@ function ame_ajax_save_tags() {
  */
 function ame_ajax_get_categories() {
 	global $wpdb, $post;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
 	$ame_id = intval( $_POST['postid'] );
 	
 	if( !current_user_can( 'edit_post', $ame_id ) ) {
@@ -232,6 +241,8 @@ function ame_ajax_get_categories() {
  */
 function ame_ajax_save_categories() {
 	global $wpdb, $post;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
 	$postid = intval( $_POST['postid'] );
 	$ame_cats = $_POST['ame_cats'];
 	
@@ -272,6 +283,8 @@ function ame_ajax_save_categories() {
  */
 function ame_toggle_showinvisposts() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
 	$status = intval( $_POST['status'] );
 	
 	update_option( "ame_toggle_showinvisposts", $status );
@@ -300,6 +313,8 @@ function ame_ajax_toggle_imageset() {
  */
 function ame_toggle_orderoptions() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
 	$status = intval( $_POST['status'] );
 	
 	update_option( "ame_show_orderoptions", $status );
@@ -314,6 +329,8 @@ function ame_toggle_orderoptions() {
  */
 function ame_slug_edit() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
 	$postid = intval( $_POST['category_id'] );
 	if( is_string( $_POST['posttype'] ) ) $posttype = $_POST['posttype'];
 	
@@ -342,6 +359,8 @@ function ame_slug_edit() {
  */
 function ame_author_edit() {
 	global $wpdb, $current_user;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
 	$postid = intval( $_POST['post_id'] );
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
@@ -396,6 +415,8 @@ function ame_author_edit() {
  */
 function ame_save_order() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
 	$postid = intval( $_POST['category_id'] );
 	$neworderid = intval( $_POST['new_orderid'] );
 	
@@ -416,6 +437,8 @@ function ame_save_order() {
  */
 function ame_save_slug() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
 	$postid = intval( $_POST['category_id'] );
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
@@ -451,6 +474,8 @@ function ame_save_slug() {
  */
 function ame_save_author() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
 	$postid = intval( $_POST['category_id'] );
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
@@ -480,6 +505,8 @@ function ame_save_author() {
  */
 function ame_save_title() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
 	$postid = intval( $_POST['category_id'] );
 	$new_title = $_POST['new_title'];
 	$new_title = apply_filters( 'the_title', $new_title );
@@ -504,6 +531,8 @@ function ame_save_title() {
  */
 function ame_set_date() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
 	$postid = intval( substr( $_POST['category_id'], 10, 5 ) );
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
@@ -542,6 +571,8 @@ function ame_set_date() {
  */
 function ame_toggle_visibility() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
 	$postid = intval( $_POST['category_id'] );
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
@@ -584,6 +615,8 @@ function ame_toggle_visibility() {
  */
 function ame_toggle_sticky() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
 	$postid = intval( $_POST['post_id'] );
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
@@ -612,6 +645,8 @@ function ame_toggle_sticky() {
  * @link http://plugins.trac.wordpress.org/browser/exclude-pages/trunk/exclude_pages.php#L162
  */
 function ame_toggle_excludestatus() {
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
 	if( !current_user_can( 'edit_pages' ) ) {
 		die();
 		return;
@@ -955,9 +990,20 @@ if( function_exists( 'add_action' ) ) {
 			wp_enqueue_script( 'ame_gui-modificators', AME_PLUGINFULLURL . "js/gui-modificators.js", array(
 				'sack' 
 			), AME_VERSION );
-			wp_enqueue_script( 'ame_miscscripts', AME_PLUGINFULLURL . "js/functions.js", array(
-				'sack' 
-			), AME_VERSION );
+			wp_register_script( 
+				'ame_miscscripts',
+				AME_PLUGINFULLURL . "js/functions.js",
+				array( 'jquery', 'sack' ),
+				AME_VERSION
+			);   
+			wp_enqueue_script( 'ame_miscscripts' );    
+			wp_localize_script( 
+				'ame_miscscripts',
+				'ameAjaxSec',
+				array(
+					'ajaxnonce'	=> wp_create_nonce( 'ame_ajax_validation' )
+				) 
+			);
 		}
 		
 		add_action( 'admin_head', 'ame_css_admin_header' );
@@ -1000,9 +1046,20 @@ if( function_exists( 'add_action' ) ) {
 			wp_enqueue_script( 'ame_gui-modificators', AME_PLUGINFULLURL . "js/gui-modificators.js", array(
 				'sack' 
 			), AME_VERSION );
-			wp_enqueue_script( 'ame_miscscripts', AME_PLUGINFULLURL . "js/functions.js", array(
-				'sack' 
-			), AME_VERSION );
+			wp_register_script( 
+				'ame_miscscripts',
+				AME_PLUGINFULLURL . "js/functions.js",
+				array( 'jquery', 'sack' ),
+				AME_VERSION
+			);   
+			wp_enqueue_script( 'ame_miscscripts' );    
+			wp_localize_script( 
+				'ame_miscscripts',
+				'ameAjaxSec',
+				array(
+					'ajaxnonce'	=> wp_create_nonce( 'ame_ajax_validation' )
+				) 
+			);
 		}
 		
 		add_action( 'admin_print_scripts', 'ame_js_admin_header' );
@@ -1015,9 +1072,20 @@ if( function_exists( 'add_action' ) ) {
 			wp_enqueue_script( 'ame_gui-modificators', AME_PLUGINFULLURL . "js/gui-modificators.js", array(
 				'sack' 
 			), AME_VERSION );
-			wp_enqueue_script( 'ame_miscscripts', AME_PLUGINFULLURL . "js/functions.js", array(
-				'sack' 
-			), AME_VERSION );
+			wp_register_script( 
+				'ame_miscscripts',
+				AME_PLUGINFULLURL . "js/functions.js",
+				array( 'jquery', 'sack' ),
+				AME_VERSION
+			);   
+			wp_enqueue_script( 'ame_miscscripts' );    
+			wp_localize_script( 
+				'ame_miscscripts',
+				'ameAjaxSec',
+				array(
+					'ajaxnonce'	=> wp_create_nonce( 'ame_ajax_validation' )
+				) 
+			);
 		}
 		
 		add_action( 'admin_print_scripts', 'ame_js_admin_header' );

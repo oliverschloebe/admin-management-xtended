@@ -3,7 +3,7 @@ Contributors: Alphawolf
 Donate link: https://www.schloebe.de/donate/
 Tags: admin, ajax, management, cms, post, pages, category, inline, media, revision, link, bookmark, drag-and-drop, drag drop, 
 Requires at least: 4.3
-Tested up to: 6.9.9999
+Tested up to: 6.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -103,6 +103,10 @@ Please visit [the official website](https://www.schloebe.de/wordpress/admin-mana
 4. Installation finished.
 
 == Changelog ==
+
+= 2.4.5 =
+* FIXED: WordPress 6.0 compatibility
+* FIXED: CSRF vulnerabilities fixed (https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-29450)
 
 = 2.4.4 =
 * FIXED: WordPress 5.5 compatibility

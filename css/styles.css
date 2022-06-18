@@ -1,7 +1,8 @@
-.status-draft, .status-future, .cannotdrop {
-	-moz-opacity: 0.4;
+.cannotdrop {
+	opacity: 0.4;
 	filter:Alpha(opacity=40, finishopacity=40, style=1);
 }
+
 .ondragrow {
 	background: #328AB2;
 	color: #fff;
@@ -9,6 +10,10 @@
 
 .ondragrow a {
 	color: #fff;
+}
+
+#TB_ajaxContent {
+	overflow: hidden;
 }
 
 ul#categorychecklist {
