@@ -78,7 +78,6 @@ function ame_ajax_save_mediadesc() {
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
-		return;
 	}
 	
 	$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_excerpt = %s WHERE ID = %d", stripslashes( $new_mediadesc ), $postid ) );
@@ -105,7 +104,6 @@ function ame_ajax_set_commentstatus() {
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
-		return;
 	}
 	
 	($q_status == '1') ? $status = 'open' : $status = 'closed';
@@ -135,7 +133,6 @@ function ame_get_pageorder() {
 	
 	if( !current_user_can( 'edit_pages' ) ) {
 		die();
-		return;
 	}
 	
 	$pageorder2 = $_POST['pageordertable2'];
@@ -167,7 +164,6 @@ function ame_ajax_save_tags() {
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
-		return;
 	}
 	
 	$tagarray = explode( ",", trim( $ame_tags ) );
@@ -213,7 +209,6 @@ function ame_ajax_get_categories() {
 	
 	if( !current_user_can( 'edit_post', $ame_id ) ) {
 		die();
-		return;
 	}
 	
 	echo '<div id="categorychoose' . $ame_id . '" class="categorydiv">';
@@ -248,7 +243,6 @@ function ame_ajax_save_categories() {
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
-		return;
 	}
 	
 	$ame_categories = substr( $ame_cats, 0, - 1 );
@@ -336,7 +330,6 @@ function ame_slug_edit() {
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
-		return;
 	}
 	
 	if( $posttype == 'post' ) {
@@ -365,7 +358,6 @@ function ame_author_edit() {
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
-		return;
 	}
 	
 	$cols = intval( $_POST['col_no'] );
@@ -377,10 +369,8 @@ function ame_author_edit() {
 	}
 	if( $typenumber == '1' && ! current_user_can( 'edit_post', $postid ) ) {
 		die( "alert('" . esc_js( __( 'You are not allowed to change the post author as this user.' ) ) . "');" );
-		return;
 	} elseif( $typenumber == '2' && ! current_user_can( 'edit_page', $postid ) ) {
 		die( "alert('" . esc_js( __( 'You are not allowed to change the page author as this user.' ) ) . "');" );
-		return;
 	}
 	$post = get_post( $postid );
 	
@@ -395,13 +385,11 @@ function ame_author_edit() {
 	} else {
 		if( $typenumber == '1' ) {
 			die( "alert('" . esc_js( __( 'You are not allowed to change the post author as this user.' ) ) . "');" );
-			return;
 		} elseif( $typenumber == '2' ) {
 			die( "alert('" . esc_js( __( 'You are not allowed to change the page author as this user.' ) ) . "');" );
-			return;
 		}
 	}
-	$output = str_replace( "\n", "", $output );
+	$output = (!empty($output) ? str_replace( "\n", "", $output ) : '');
 	
 	$addHTML = "<tr id='alterpost-" . $postid . "' class='author-other status-publish' valign='middle'><td colspan='" . $cols . "' align='center'>" . $output . " <div class='button-group'><input value='" . __( 'Save' ) . "' class='button button-primary primary' type='button' onclick='ame_ajax_author_save(" . $postid . ", " . $typenumber . ");' /> <input value='" . __( 'Cancel' ) . "' class='button button-secondary secondary' type='button' onclick='ame_edit_cancel($postid)' /></div></td></tr>";
 	die( "jQuery('#post-" . $postid . "').after( \"" . $addHTML . "\" ); jQuery('#post-" . $postid . "').hide();" );
@@ -422,7 +410,6 @@ function ame_save_order() {
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
-		return;
 	}
 	
 	$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET menu_order = %d WHERE ID = %d", $neworderid, $postid ) );
@@ -443,7 +430,6 @@ function ame_save_slug() {
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
-		return;
 	}
 	
 	$new_slug = $_POST['new_slug'];
@@ -480,7 +466,6 @@ function ame_save_author() {
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
-		return;
 	}
 	
 	$newauthorid = intval( $_POST['newauthor'] );
@@ -513,7 +498,6 @@ function ame_save_title() {
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
-		return;
 	}
 	
 	$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_title = %s WHERE ID = %d", stripslashes( $new_title ), $postid ) );
@@ -537,7 +521,6 @@ function ame_set_date() {
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
-		return;
 	}
 	
 	$newpostdate = date( "Y-m-d H:i:s", strtotime( $_POST['pickedDate'] ) );
@@ -554,7 +537,6 @@ function ame_set_date() {
 	} elseif( strtotime( current_time( 'mysql' ) ) > strtotime( $newpostdate ) ) {
 		if( $posttype == 'post' && ! current_user_can( 'publish_posts' ) ) {
 			die( "alert('" . esc_js( __( 'You are not allowed to edit this post.' ) ) . "');" );
-			return;
 		}
 		// $wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_status = 'publish' WHERE ID = %d", $postid ) );
 		$post = get_post( $postid );
@@ -577,7 +559,6 @@ function ame_toggle_visibility() {
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
-		return;
 	}
 	
 	if( is_string( $_POST['vis_status'] ) ) $status = $_POST['vis_status'];
@@ -587,7 +568,6 @@ function ame_toggle_visibility() {
 	if( $status == 'publish' ) {
 		if( $posttype == 'post' && ! current_user_can( 'publish_posts' ) ) {
 			die( "alert('" . esc_js( __( 'Sorry, you do not have the right to publish this post.' ) ) . "');" );
-			return;
 		}
 		if( $posttype == 'post' && $post_status == 'pending' ) {
 			$postdate = current_time( 'mysql' );
@@ -621,7 +601,6 @@ function ame_toggle_sticky() {
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
-		return;
 	}
 	
 	$post = get_post( $postid );
@@ -649,7 +628,10 @@ function ame_toggle_excludestatus() {
 	
 	if( !current_user_can( 'edit_pages' ) ) {
 		die();
-		return;
+	}
+
+	if( !is_plugin_active('exclude-pages/exclude_pages.php') ) {
+		die();
 	}
 	
 	$pageid = intval( $_POST['pageid'] );
@@ -975,12 +957,8 @@ if( function_exists( 'add_action' ) ) {
 	if( ($current_page == 'edit' || $current_page == 'edit-pages') && ! isset( $_GET['page'] ) ) {
 
 		function ame_enqueue_stuff_edit() {
-			wp_enqueue_style( array(
-				'thickbox' 
-			) );
-			wp_enqueue_script( array(
-				'thickbox' 
-			) );
+			wp_enqueue_style( 'thickbox' );
+			wp_enqueue_script( 'thickbox' );
 			wp_enqueue_script( 'date', AME_PLUGINFULLURL . "js/jquery-addons/date.js", array(
 				'jquery' 
 			), AME_VERSION );
@@ -1037,12 +1015,8 @@ if( function_exists( 'add_action' ) ) {
 	if( $current_page == 'link-manager' ) {
 
 		function ame_enqueue_stuff_linkmanager() {
-			wp_enqueue_style( array(
-				'thickbox' 
-			) );
-			wp_enqueue_script( array(
-				'thickbox' 
-			) );
+			wp_enqueue_style( 'thickbox' );
+			wp_enqueue_script( 'thickbox' );
 			wp_enqueue_script( 'ame_gui-modificators', AME_PLUGINFULLURL . "js/gui-modificators.js", array(
 				'sack' 
 			), AME_VERSION );
@@ -1094,9 +1068,7 @@ if( function_exists( 'add_action' ) ) {
 	if( $current_page == 'edit' && isset( $_GET['post_type'] ) && $_GET['post_type'] != 'page' && ! isset( $_GET['page'] ) ) {
 
 		function ame_enqueue_stuff_editpost() {
-			wp_enqueue_script( array(
-				'suggest' 
-			) );
+			wp_enqueue_script( 'suggest' );
 		}
 		add_action( 'admin_enqueue_scripts', 'ame_enqueue_stuff_editpost' );
 	}
@@ -1116,4 +1088,3 @@ if( function_exists( 'add_action' ) ) {
 		add_action( 'admin_enqueue_scripts', 'ame_enqueue_stuff_edittags' );
 	}
 }
-?>

@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Admin Management Xtended
-Version: 2.4.5
+Version: 2.4.6
 Plugin URI: https://www.schloebe.de/wordpress/admin-management-xtended-plugin/
 Description: <strong>WordPress 4.3+ only.</strong> Extends admin functionalities by introducing: toggling post/page visibility inline, changing page order with drag'n'drop, inline category management, inline tag management, changing publication date inline, changing post slug inline, toggling comment status open/closed, hide draft posts, change media order, change media description inline, toggling link visibility, changing link categories
 Author: Oliver Schl&ouml;be
@@ -10,7 +10,7 @@ Text Domain: admin-management-xtended
 Domain Path: /languages
 
 
-Copyright 2008-2022 Oliver Schlöbe (email : scripts@schloebe.de)
+Copyright 2008-2024 Oliver Schlöbe (email : scripts@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -36,35 +36,24 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 
 
 /**
- * Checks if a given plugin is active
- *
- * @since 1.4.0
- * @author scripts@schloebe.de
- *
- * @param string
- * @return bool
- */
-function ame_is_plugin_active( $plugin_filename ) {
-	$plugins = get_option('active_plugins');
-	if( !is_array($plugins) ) settype($plugins, 'array');
-	return ( in_array($plugin_filename, $plugins) );
-}
-
-/**
  * Define the plugin version
  */
-define("AME_VERSION", "2.4.5");
+define("AME_VERSION", "2.4.6");
 
 /**
  * Define the global var AMEISWP43, returning bool if WP 4.3 or higher is running
  */
 define('AMEISWP43', version_compare($GLOBALS['wp_version'], '4.2.999', '>'));
 
+if( !function_exists( 'is_plugin_active' ) ) {
+	require_once( ABSPATH . '/wp-admin/includes/plugin.php' );
+}
+
 /**
  * Define the global var ISINSTBTM, returning bool
  * if the 'Better Tags Manager' plugin is installed
  */
-define('ISINSTBTM', ame_is_plugin_active('better-tags-manager/better-tags-manager.php') );
+define('ISINSTBTM', is_plugin_active('better-tags-manager/better-tags-manager.php') );
 
 /**
  * Define the plugin path slug
@@ -74,7 +63,7 @@ define("AME_PLUGINPATH", "/" . plugin_basename( basename( dirname(__FILE__) ) ) 
 /**
  * Define the plugin full url
  */
-define("AME_PLUGINFULLURL", trailingslashit(plugins_url( null, __FILE__ )) );
+define("AME_PLUGINFULLURL", trailingslashit(plugins_url( '', __FILE__ )) );
 
 /**
  * Define the plugin full directory
@@ -96,6 +85,7 @@ define("AME_IMGSET", get_option("ame_imgset") . "/" );
 * @author scripts@schloebe.de
 */
 class AdminManagementXtended {
+	private $textdomain_loaded = false;
 
 	/**
  	* The AdminManagementXtended class constructor
@@ -107,8 +97,6 @@ class AdminManagementXtended {
  	* @author scripts@schloebe.de
  	*/
 	function __construct() {
-		$this->textdomain_loaded = false;
-
 		if( ISINSTBTM ) {
 			add_action('admin_notices', array(&$this, 'wpBTMIncompCheck'));
 		}
@@ -234,4 +222,3 @@ class AdminManagementXtended {
 if ( class_exists('AdminManagementXtended') && is_admin() ) {
 	$adminmanagementxtended = new AdminManagementXtended();
 }
-?>
