@@ -7,7 +7,7 @@
  */
  
 /*
-Copyright 2008-2022 Oliver Schlöbe (email : scripts@schloebe.de)
+Copyright 2008-2024 Oliver Schlöbe (email : scripts@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -70,9 +70,9 @@ function ame_custom_column_tag_actions( $ame_column_name, $ame_id ) {
 			$ame_post_tags .= __('No Tags');
 			$ame_post_tags_plain .= '';
 		}
-		echo '<span id="ame_tags' . $ame_id . '">' . $ame_post_tags . '&nbsp;';
+		echo '<span id="ame_tags' . esc_attr(intval($ame_id)) . '">' . $ame_post_tags . '&nbsp;';
 		if( current_user_can( 'edit_post', $ame_id ) ) {
-			echo '<a id="tageditlink' . $ame_id . '" href="javascript:void(0);" onclick="ame_ajax_form_tags(' . $ame_id . ', \'' . $ame_post_tags_plain . '\');return false;" title="' . __('Edit') . '"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'edit_small.gif" border="0" alt="' . __('Edit') . '" title="' . __('Edit') . '" /></a></span>';
+			echo '<a id="tageditlink' . esc_attr(intval($ame_id)) . '" href="javascript:void(0);" onclick="ame_ajax_form_tags(' . esc_attr(intval($ame_id)) . ', \'' . $ame_post_tags_plain . '\');return false;" title="' . __('Edit') . '"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'edit_small.gif" border="0" alt="' . __('Edit') . '" title="' . __('Edit') . '" /></a></span>';
 		}
 	}
 }
@@ -130,10 +130,10 @@ function ame_custom_column_category_actions( $ame_column_name, $ame_id ) {
 		<div class="categorychoosewrap" id="categorychoosewrap<?php echo $ame_id; ?>" style="width:300px;height:415px;overflow:auto;display:none;"></div>
 		<?php
 		}
-		echo '<span id="ame_category' . $ame_id . '">' . $ame_post_cats . '</span>&nbsp;';
+		echo '<span id="ame_category' . esc_attr(intval($ame_id)) . '">' . $ame_post_cats . '</span>&nbsp;';
 		if( current_user_can( 'edit_post', $ame_id ) ) {
-			echo '<a href="#" title="' . __('Edit') . '" onclick="return ame_ajax_get_categories(' . $ame_id . ');"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'edit_small.gif" border="0" alt="' . __('Edit') . '" title="' . __('Edit') . '" /></a>';
-			echo '<a title="' . __('Categories') . '" class="thickbox" id="thickboxlink' . $ame_id . '" href="#TB_inline?height=425&amp;width=300&amp;inlineId=categorychoosewrap' . $ame_id . '"></a>';
+			echo '<a href="#" title="' . __('Edit') . '" onclick="return ame_ajax_get_categories(' . esc_attr(intval($ame_id)) . ');"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'edit_small.gif" border="0" alt="' . __('Edit') . '" title="' . __('Edit') . '" /></a>';
+			echo '<a title="' . __('Categories') . '" class="thickbox" id="thickboxlink' . esc_attr(intval($ame_id)) . '" href="#TB_inline?height=425&amp;width=300&amp;inlineId=categorychoosewrap' . esc_attr(intval($ame_id)) . '"></a>';
 		}
 	}
 }
@@ -178,26 +178,26 @@ function ame_custom_column_post_actions( $ame_column_name, $ame_id ) {
 		
     	// Visibility icon
     	$visstatus = ( $post_status == 'publish' ) ? 'draft' : 'publish';
-    	echo '<div id="visicon' . $ame_id . '" style="padding:1px;float:left;"><a href="javascript:void(0);" onclick="ame_ajax_set_visibility(' . $ame_id . ', \'' . $visstatus . '\', \'post\');return false;"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . $visstatus . '.png" border="0" alt="' . __('Toggle visibility', 'admin-management-xtended') . '" title="' . __('Toggle visibility', 'admin-management-xtended') . '" /></a></div>';
+    	echo '<div id="visicon' . esc_attr(intval($ame_id)) . '" style="padding:1px;float:left;"><a href="javascript:void(0);" onclick="ame_ajax_set_visibility(' . esc_attr(intval($ame_id)) . ', \'' . $visstatus . '\', \'post\');return false;"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . $visstatus . '.png" border="0" alt="' . __('Toggle visibility', 'admin-management-xtended') . '" title="' . __('Toggle visibility', 'admin-management-xtended') . '" /></a></div>';
 		
     	// Sticky icon
     	$stickyimg = ( is_sticky( $ame_id ) ) ? 'sticky.png' : 'nosticky.png';
-    	echo '<div id="stickyicon' . $ame_id . '" style="padding:1px;float:left;"><a href="javascript:void(0);" onclick="ame_ajax_set_sticky(' . $ame_id . ');return false;"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . $stickyimg . '" border="0" alt="' . __('Stick this post to the front page') . '" title="' . __('Stick this post to the front page') . '" /></a></div>';
+    	echo '<div id="stickyicon' . esc_attr(intval($ame_id)) . '" style="padding:1px;float:left;"><a href="javascript:void(0);" onclick="ame_ajax_set_sticky(' . esc_attr(intval($ame_id)) . ');return false;"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . $stickyimg . '" border="0" alt="' . __('Stick this post to the front page') . '" title="' . __('Stick this post to the front page') . '" /></a></div>';
 		
     	// Date icon
-    	echo '<div id="date' . $ame_id . '" style="padding:1px;float:left;"><a href="javascript:void(0);" class="date-pick" id="datepicker' . $ame_id . '"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'date.png" border="0" alt="' . __('Change Publication Date', 'admin-management-xtended') . '" title="' . __('Change Publication Date', 'admin-management-xtended') . '" /></a></div>';
+    	echo '<div id="date' . esc_attr(intval($ame_id)) . '" style="padding:1px;float:left;"><a href="javascript:void(0);" class="date-pick" id="datepicker' . esc_attr(intval($ame_id)) . '"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'date.png" border="0" alt="' . __('Change Publication Date', 'admin-management-xtended') . '" title="' . __('Change Publication Date', 'admin-management-xtended') . '" /></a></div>';
 		
     	// Slug edit icon
-    	echo '<div id="slug' . $ame_id . '" style="padding:1px;float:left;"><a href="javascript:void(0);" id="slugedit' . $ame_id . '" onclick="ame_slug_edit(' . $ame_id . ', \'post\');"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'slug_edit.png" border="0" alt="' . __('Edit Post Slug', 'admin-management-xtended') . '" title="' . __('Edit Post Slug', 'admin-management-xtended') . '" /></a></div>';
+    	echo '<div id="slug' . esc_attr(intval($ame_id)) . '" style="padding:1px;float:left;"><a href="javascript:void(0);" id="slugedit' . esc_attr(intval($ame_id)) . '" onclick="ame_slug_edit(' . esc_attr(intval($ame_id)) . ', \'post\');"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'slug_edit.png" border="0" alt="' . __('Edit Post Slug', 'admin-management-xtended') . '" title="' . __('Edit Post Slug', 'admin-management-xtended') . '" /></a></div>';
 		
     	// Comment open/closed status icon
     	$comment_status = $q_post->comment_status;
     	if( $comment_status == 'open' ) { $c_status = 0; $c_img = '_open'; } else { $c_status = 1; $c_img = '_closed'; }
-    	echo '<div id="commentstatus' . $ame_id . '" style="padding:1px;float:left;"><a href="javascript:void(0);" onclick="ame_ajax_set_commentstatus(' . $ame_id . ', ' . $c_status . ', \'post\');return false;"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'comments' . $c_img . '.png" border="0" alt="' . __('Toggle comment status open/closed', 'admin-management-xtended') . '" title="' . __('Toggle comment status open/closed', 'admin-management-xtended') . '" /></a></div> ';
+    	echo '<div id="commentstatus' . esc_attr(intval($ame_id)) . '" style="padding:1px;float:left;"><a href="javascript:void(0);" onclick="ame_ajax_set_commentstatus(' . esc_attr(intval($ame_id)) . ', ' . $c_status . ', \'post\');return false;"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'comments' . $c_img . '.png" border="0" alt="' . __('Toggle comment status open/closed', 'admin-management-xtended') . '" title="' . __('Toggle comment status open/closed', 'admin-management-xtended') . '" /></a></div> ';
 		
 		// Post revisions
 		if( function_exists('wp_list_post_revisions') && wp_get_post_revisions( $ame_id ) ) {
-			echo '<div class="amehasrev" id="amerevisionwrap' . $ame_id . '" style="width:300px;height:165px;overflow:auto;display:none;">';
+			echo '<div class="amehasrev" id="amerevisionwrap' . esc_attr(intval($ame_id)) . '" style="width:300px;height:165px;overflow:auto;display:none;">';
 			wp_list_post_revisions( $ame_id );
 			echo '</div>';
 		}

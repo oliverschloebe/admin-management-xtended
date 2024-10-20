@@ -7,7 +7,7 @@
  */
  
 /*
-Copyright 2008-2022 Oliver Schlöbe (email : scripts@schloebe.de)
+Copyright 2008-2024 Oliver Schlöbe (email : scripts@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -57,7 +57,7 @@ function ame_custom_column_link_visibility( $ame_column_name, $ame_id ) {
     if( $ame_column_name == 'ame_link_visibility' && current_user_can( 'manage_links', $ame_id ) ) {
     	$link = get_bookmark( $ame_id );
     	$visible = ($link->link_visible == 'Y') ? __('Yes') : __('No');
-		echo '<span id="ame_linkvis' . $ame_id . '">' . $visible . '</span>&nbsp;<a id="ame_linkvislink' . $ame_id . '" href="javascript:void(0);" onclick="ame_ajax_set_linkvisibility(' . $ame_id . ');return false;" title="' . __('Edit') . '"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'toggle.gif" border="0" alt="' . __('Toggle visibility', 'admin-management-xtended') . '" title="' . __('Toggle visibility', 'admin-management-xtended') . '" /></a><br />';
+		echo '<span id="ame_linkvis' . esc_attr(intval($ame_id)) . '">' . $visible . '</span>&nbsp;<a id="ame_linkvislink' . esc_attr(intval($ame_id)) . '" href="javascript:void(0);" onclick="ame_ajax_set_linkvisibility(' . esc_attr(intval($ame_id)) . ');return false;" title="' . __('Edit') . '"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'toggle.gif" border="0" alt="' . __('Toggle visibility', 'admin-management-xtended') . '" title="' . __('Toggle visibility', 'admin-management-xtended') . '" /></a><br />';
     }
 }
 
@@ -103,8 +103,8 @@ function ame_custom_column_link_categories( $ame_column_name, $ame_id ) {
 			$cat_names[] = $cat_name;
 		}
 		$ame_link_cats = implode(', ', $cat_names);
-		echo '<span id="ame_linkcategory' . $ame_id . '">' . $ame_link_cats . '</span>&nbsp;';
-		echo '<a class="thickbox" id="thickboxlink' . $ame_id . '" href="#TB_inline?height=205&amp;width=300&amp;inlineId=linkcategorychoosewrap' . $ame_id . '&amp;modal=true" title="' . __('Edit') . '"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'edit_small.gif" border="0" alt="' . __('Edit') . '" title="' . __('Edit') . '" /></a>';
+		echo '<span id="ame_linkcategory' . esc_attr(intval($ame_id)) . '">' . $ame_link_cats . '</span>&nbsp;';
+		echo '<a class="thickbox" id="thickboxlink' . esc_attr(intval($ame_id)) . '" href="#TB_inline?height=205&amp;width=300&amp;inlineId=linkcategorychoosewrap' . esc_attr(intval($ame_id)) . '&amp;modal=true" title="' . __('Edit') . '"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'edit_small.gif" border="0" alt="' . __('Edit') . '" title="' . __('Edit') . '" /></a>';
 		?>
 		<div id="linkcategorychoosewrap<?php echo $ame_id; ?>" style="width:300px;height:165px;overflow:auto;display:none;">
 		<div id="linkcategorychoose<?php echo $ame_id; ?>" class="categorydiv">
@@ -136,7 +136,6 @@ function ame_toggle_linkvisibility() {
 	
 	if( !current_user_can( 'manage_links' ) ) {
 		die();
-		return;
 	}
 	
 	$link = get_bookmark( $linkid );
@@ -144,7 +143,7 @@ function ame_toggle_linkvisibility() {
 	$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->links SET link_visible = %s WHERE link_id = %d", $status, $linkid ) );
 	do_action( 'edit_link', $linkid );
 	$visible = ($link->link_visible == 'Y') ? __('No') : __('Yes');
-	die( "jQuery('span#ame_linkvis" . $linkid . "').text('" . addslashes_gpc( $visible ) . "');jQuery('#" . $posttype . "-" . $linkid . " td, #" . $posttype . "-" . $linkid . " th').animate( { backgroundColor: '#EAF3FA' }, 300).animate( { backgroundColor: '#F9F9F9' }, 300).animate( { backgroundColor: '#EAF3FA' }, 300).animate( { backgroundColor: '#F9F9F9' }, 300);" );
+	die( "jQuery('span#ame_linkvis" . esc_attr(intval($linkid)) . "').text('" . addslashes_gpc( $visible ) . "');jQuery('#" . $posttype . "-" . esc_attr(intval($linkid)) . " td, #" . $posttype . "-" . esc_attr(intval($linkid)) . " th').animate( { backgroundColor: '#EAF3FA' }, 300).animate( { backgroundColor: '#F9F9F9' }, 300).animate( { backgroundColor: '#EAF3FA' }, 300).animate( { backgroundColor: '#F9F9F9' }, 300);" );
 }
 
 /**
@@ -157,12 +156,11 @@ function ame_ajax_save_linkcategories() {
 	global $wpdb;
 	check_ajax_referer( 'ame_ajax_save_linkcategories' );
 	
-	$linkid = (int) $_POST['linkid'];
-	$ame_linkcats = $_POST['ame_linkcats'];
+	$linkid = intval($_POST['linkid']);
+	$ame_linkcats = sanitize_text_field( $_POST['ame_linkcats'] );
 	
 	if( !current_user_can( 'manage_links' ) ) {
 		die();
-		return;
 	}
 	
 	$ame_linkcategories = substr( $ame_linkcats, 0, -1 );
@@ -183,9 +181,9 @@ function ame_ajax_save_linkcategories() {
 		$cat_names[] = $cat_name;
 	}
 	$ame_link_cats = implode(', ', $cat_names);
-	die( "re_init();jQuery('span#ame_linkcategory" . $linkid . "').fadeOut('fast', function() {
-		jQuery('a#thickboxlink" . $linkid . "').show();
-		jQuery('span#ame_linkcategory" . $linkid . "').html('" . addslashes_gpc( $ame_link_cats ) . "').fadeIn('fast');
+	die( "re_init();jQuery('span#ame_linkcategory" . esc_attr(intval($linkid)) . "').fadeOut('fast', function() {
+		jQuery('a#thickboxlink" . esc_attr(intval($linkid)) . "').show();
+		jQuery('span#ame_linkcategory" . esc_attr(intval($linkid)) . "').html('" . addslashes_gpc( $ame_link_cats ) . "').fadeIn('fast');
 	});" );
 }
 
