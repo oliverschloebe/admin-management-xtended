@@ -3,17 +3,16 @@ msgstr ""
 "Project-Id-Version: Admin Management Xtended\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2008-10-17 20:47+0000\n"
-"PO-Revision-Date: Sat Sep 12 2015 16:47:48 GMT+0200 (Central Europe Daylight "
-"Time)\n"
+"PO-Revision-Date: 2025-04-13 15:59+0000\n"
 "Last-Translator: Oliver Schlöbe <webmaster@schloebe.de>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: German\n"
-"Plural-Forms: nplurals=2; plural=n != 1\n"
+"Language-Team: German\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Generator: Loco - https://localise.biz/\n"
+"X-Generator: Loco https://localise.biz/\n"
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-KeywordsList: _:1;gettext:1;dgettext:2;ngettext:1,2;dngettext:2,3;"
@@ -29,155 +28,9 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Loco-Target-Locale: de_DE"
 
-# Doesnt need to be translated.
-#: ../post-functions.php:43
-msgid "Tags"
-msgstr ""
-
-# Doesnt need to be translated.
-#: ../post-functions.php:70 ../general-functions.php:160
-msgid "No Tags"
-msgstr ""
-
-# Doesnt need to be translated.
-#: ../post-functions.php:75 ../post-functions.php:75 ../post-functions.php:75 ..
-#: post-functions.php:135 ../post-functions.php:135 ../post-functions.php:135 ..
-#: media-functions.php:95 ../media-functions.php:95 ../media-functions.php:95 ..
-#: general-functions.php:79 ../general-functions.php:79 ../general-functions.php:
-#: 79 ../general-functions.php:163 ../general-functions.php:163 ../general-
-#: functions.php:163 ../general-functions.php:765 ../link-functions.php:60 ..
-#: link-functions.php:107 ../link-functions.php:107 ../link-functions.php:107
-msgid "Edit"
-msgstr ""
-
-# Doesnt need to be translated.
-#: ../post-functions.php:99 ../post-functions.php:136 ../link-functions.php:78
-msgid "Categories"
-msgstr ""
-
-# Doesnt need to be translated.
-#: ../post-functions.php:126 ../general-functions.php:225
-msgid "Uncategorized"
-msgstr ""
-
-# Doesnt need to be translated.
-#: ../media-functions.php:56
-msgid "Description"
-msgstr ""
-
-#. translators: plugin header field 'Description'
-msgid ""
-"<strong>WordPress 3.2+ only.</strong> Extends admin functionalities by "
-"introducing: toggling post/page visibility inline, changing page order with "
-"drag'n'drop, inline category management, inline tag management, changing "
-"publication date inline, changing post slug inline, toggling comment status "
-"open/closed, hide draft posts, change media order, change media description "
-"inline, toggling link visibility, changing link categories"
-msgstr ""
-
-# Doesnt need to be translated.
-#: ../general-functions.php:316 ../general-functions.php:334
-msgid "You are not allowed to change the post author as this user."
-msgstr ""
-
-# Doesnt need to be translated.
-#: ../general-functions.php:319 ../general-functions.php:337
-msgid "You are not allowed to change the page author as this user."
-msgstr ""
-
-# Doesnt need to be translated.
-#: ../general-functions.php:452 ../general-functions.php:461
-msgid "Y/m/d"
-msgstr ""
-
-# Doesnt need to be translated.
-#: ../general-functions.php:455
-msgid "You are not allowed to edit this post."
-msgstr ""
-
-# Doesnt need to be translated.
-#: ../general-functions.php:480
-msgid "Sorry, you do not have the right to publish this post."
-msgstr ""
-
-# Doesnt need to be translated.
-#: ../general-functions.php:765
-msgid "Insert time"
-msgstr ""
-
-# Doesnt need to be translated.
-#: ../link-functions.php:42
-msgid "Visible"
-msgstr ""
-
-# Doesnt need to be translated.
-#: ../link-functions.php:59 ../link-functions.php:138
-msgid "Yes"
-msgstr ""
-
-# Doesnt need to be translated.
-#: ../link-functions.php:59 ../link-functions.php:138
-msgid "No"
-msgstr ""
-
-#: ../post-functions.php:43 ../post-functions.php:99 ../post-functions.php:160 ..
-#: media-functions.php:41 ../media-functions.php:56 ../page-functions.php:41 ..
-#: page-functions.php:59 ../link-functions.php:42 ../link-functions.php:78
-msgid "Enhanced by Admin Management Xtended Plugin"
-msgstr "Erweitert durch das Admin Management Xtended Plugin"
-
-#: ../post-functions.php:160 ../page-functions.php:41
-msgid "Actions"
-msgstr "Aktionen"
-
-#: ../post-functions.php:181 ../post-functions.php:181 ../page-functions.php:80 ..
-#: page-functions.php:80 ../general-functions.php:492 ../general-functions.php:
-#: 492 ../general-functions.php:497 ../general-functions.php:497 ../link-
-#: functions.php:60 ../link-functions.php:60
-msgid "Toggle visibility"
-msgstr "Sichtbarkeit umschalten"
-
-#: ../post-functions.php:185 ../post-functions.php:185 ../general-functions.php:
-#: 515 ../general-functions.php:515 ../general-functions.php:519 ../general-
-#: functions.php:519
-msgid "Stick this post to the front page"
-msgstr "Diesen Beitrag auf der Startseite oben festhalten"
-
-#: ../post-functions.php:188 ../post-functions.php:188 ../page-functions.php:83 ..
-#: page-functions.php:83
-msgid "Change Publication Date"
-msgstr "Veröffentlichungsdatum ändern"
-
-#: ../post-functions.php:191 ../post-functions.php:191
-msgid "Edit Post Slug"
-msgstr "Artikel-Slug bearbeiten"
-
-#: ../post-functions.php:196 ../post-functions.php:196 ../page-functions.php:91 ..
-#: page-functions.php:91 ../page-functions.php:91 ../general-functions.php:103 ..
-#: general-functions.php:103 ../general-functions.php:107 ../general-functions.
-#: php:107
-msgid "Toggle comment status open/closed"
-msgstr "Kommentar-Status auf offen/geschlossen umschalten"
-
-#: ../media-functions.php:41
-msgid "Media Order"
-msgstr "Medienreihenfolge"
-
-#. translators: plugin header field 'Name'
-msgid "Admin Management Xtended"
-msgstr "Admin Management Xtended"
-
-#. URI of the plugin
-msgid "http://www.schloebe.de/wordpress/admin-management-xtended-plugin"
-msgstr "http://www.schloebe.de/wordpress/admin-management-xtended-plugin"
-
-#. translators: plugin header field 'Author'
-msgid "Oliver Schl&ouml;be"
-msgstr "Oliver Schl&ouml;be"
-
-#. Author URI of the plugin
-msgid "http://www.schloebe.de"
-msgstr "http://www.schloebe.de"
+#: ../admin-management-xtended.php:229
+msgid "(This message was created by Admin Management Xtended plugin)"
+msgstr "(Dieser Hinweis stammt vom Admin Management Xtended Plugin)"
 
 #: ../admin-management-xtended.php:217
 #, php-format
@@ -193,6 +46,291 @@ msgstr ""
 "9.4!</a> Updaten Sie auf die aktuellste WP-Version zu Ihrer eigenen "
 "Sicherheit!"
 
+#. Description of the plugin
+msgid ""
+"<strong>WordPress 3.2+ only.</strong> Extends admin functionalities by "
+"introducing: toggling post/page visibility inline, changing page order with "
+"drag'n'drop, inline category management, inline tag management, changing "
+"publication date inline, changing post slug inline, toggling comment status "
+"open/closed, hide draft posts, change media order, change media description "
+"inline, toggling link visibility, changing link categories"
+msgstr ""
+"<strong>Nur WordPress 3.2+.</strong> Erweitert die Admin-Funktionen um: "
+"Inline-Sichtbarkeit von Beiträgen/Seiten umschalten, Seitenreihenfolge per "
+"Drag'n'Drop ändern, Inline-Kategorieverwaltung, Inline-Tag-Verwaltung, "
+"Veröffentlichungsdatum inline ändern, Beitrags-Slug inline ändern, "
+"Kommentarstatus offen/geschlossen umschalten, Beitragsentwürfe ausblenden, "
+"Medienreihenfolge ändern, Medienbeschreibung inline ändern, Link-"
+"Sichtbarkeit umschalten, Link-Kategorien ändern"
+
+#: ../post-functions.php:160 ../page-functions.php:41
+msgid "Actions"
+msgstr "Aktionen"
+
+#. Plugin Name of an extension
+msgid "Admin Management Xtended"
+msgstr "Admin Management Xtended"
+
+#: ../general-functions.php:193 ../general-functions.php:295
+#: ../general-functions. php:343 ../general-functions.php:765
+#: ../link-functions.php:114
+msgid "Cancel"
+msgstr "Abbrechen"
+
+# Doesnt need to be translated.
+#: ../post-functions.php:99 ../post-functions.php:136 ../link-functions.php:78
+msgid "Categories"
+msgstr "Kategorien"
+
+#: ../general-functions.php:845 ../general-functions.php:845
+msgid "Change image set"
+msgstr "Button-Set ändern"
+
+#: ../general-functions.php:603
+msgid "Change page order"
+msgstr "Seitenreihenfolge ändern"
+
+#: ../post-functions.php:188 ../post-functions.php:188 ../page-functions.php:83
+#: .. /page-functions.php:83
+msgid "Change Publication Date"
+msgstr "Veröffentlichungsdatum ändern"
+
+#: ../general-functions.php:185
+msgid "Check All"
+msgstr "Alle ausw&auml;hlen"
+
+#: ../general-functions.php:646
+msgid "Close"
+msgstr "Schließen"
+
+# Doesnt need to be translated.
+#: ../media-functions.php:56
+msgid "Description"
+msgstr "Beschreibung"
+
+#: ../general-functions.php:686 ../general-functions.php:693
+#: ../general-functions. php:700
+msgid "Direct input"
+msgstr "Direkteingabe"
+
+#: ../general-functions.php:683 ../general-functions.php:690
+#: ../general-functions. php:697
+msgid "Drag & Drop"
+msgstr "Drag & Drop"
+
+# Doesnt need to be translated.
+#: ../post-functions.php:75 ../post-functions.php:75 ../post-functions.php:75
+#: .. /post-functions.php:135 ../post-functions.php:135
+#: ../post-functions.php:135 .. /media-functions.php:95
+#: ../media-functions.php:95 ../media-functions.php:95 ..
+#: /general-functions.php:79 ../general-functions.php:79
+#: ../general-functions.php: 79 ../general-functions.php:163
+#: ../general-functions.php:163 ../general- functions.php:163
+#: ../general-functions.php:765 ../link-functions.php:60 ..
+#: /link-functions.php:107 ../link-functions.php:107 ../link-functions.php:107
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: ../general-functions.php:679
+msgid "Edit Page Order:"
+msgstr "Seitenreihenfolge bearbeiten"
+
+#: ../page-functions.php:86 ../page-functions.php:86
+msgid "Edit Page Slug"
+msgstr "Seiten-Slug bearbeiten"
+
+#: ../general-functions.php:680
+msgid "Edit Post Order:"
+msgstr "Artikelreihenfolge bearbeiten"
+
+#: ../post-functions.php:191 ../post-functions.php:191
+msgid "Edit Post Slug"
+msgstr "Artikel-Slug bearbeiten"
+
+#: ../post-functions.php:43 ../post-functions.php:99 ../post-functions.php:160
+#: .. /media-functions.php:41 ../media-functions.php:56
+#: ../page-functions.php:41 .. /page-functions.php:59 ../link-functions.php:42
+#: ../link-functions.php:78
+msgid "Enhanced by Admin Management Xtended Plugin"
+msgstr "Erweitert durch das Admin Management Xtended Plugin"
+
+#: ../general-functions.php:709
+msgid "Hide invisible Posts"
+msgstr "Verstecke nicht sichtbare Artikel"
+
+#. Author URI of the plugin
+msgid "http://www.schloebe.de"
+msgstr "http://www.schloebe.de"
+
+#. URI of the plugin
+msgid "http://www.schloebe.de/wordpress/admin-management-xtended-plugin"
+msgstr "http://www.schloebe.de/wordpress/admin-management-xtended-plugin"
+
+# Doesnt need to be translated.
+#: ../general-functions.php:765
+msgid "Insert time"
+msgstr "Zeit einfügen"
+
+#: ../media-functions.php:41
+msgid "Media Order"
+msgstr "Medienreihenfolge"
+
+#: ../general-functions.php:645
+msgid "Next Month"
+msgstr "Nächster Monat"
+
+#: ../general-functions.php:644
+msgid "Next Year"
+msgstr "Nächstes Jahr"
+
+# Doesnt need to be translated.
+#: ../link-functions.php:59 ../link-functions.php:138
+msgid "No"
+msgstr "Nein"
+
+# Doesnt need to be translated.
+#: ../post-functions.php:70 ../general-functions.php:160
+msgid "No Tags"
+msgstr "Keine Tags"
+
+#: ../general-functions.php:686 ../general-functions.php:693
+#: ../general-functions. php:700
+msgid "Off"
+msgstr "Aus"
+
+#. Author of an extension
+msgid "Oliver Schl&ouml;be"
+msgstr "Oliver Schl&ouml;be"
+
+#: ../page-functions.php:57
+msgid "Page Order:"
+msgstr "Seitenreihenfolge"
+
+# Doesnt need to be translated.
+#: ../general-functions.php:754 ../general-functions.php:758
+msgid "Page Revisions"
+msgstr "Seitenüberarbeitungen"
+
+#: ../general-functions.php:647
+msgid "Pick Date"
+msgstr "Datum wählen"
+
+#: ../general-functions.php:765
+msgid "Please wait..."
+msgstr "Bitte warten..."
+
+#: ../page-functions.php:97 ../page-functions.php:97 ../page-functions.php:97
+#: .. /general-functions.php:551 ../general-functions.php:551
+#: ../general-functions. php:551
+msgid "Plugin: Exclude Pages - Exclude page from navigation"
+msgstr "Plugin: Exclude Pages - Seite aus Navigation ausschließen"
+
+#: ../general-functions.php:765
+msgid "Post"
+msgstr "Artikel"
+
+#: ../page-functions.php:57
+msgid "Post Order:"
+msgstr "Artikelreihenfolge"
+
+# Doesnt need to be translated.
+#: ../general-functions.php:743 ../general-functions.php:756
+msgid "Post Revisions"
+msgstr "Beitragsüberarbeitungen"
+
+#: ../general-functions.php:643
+msgid "Previous Month"
+msgstr "Voriger Monat"
+
+#: ../general-functions.php:642
+msgid "Previous Year"
+msgstr "Voriges Jahr"
+
+#: ../general-functions.php:191 ../general-functions.php:295
+#: ../general-functions. php:343 ../general-functions.php:765
+#: ../link-functions.php:114
+msgid "Save"
+msgstr "Speichern"
+
+#: ../general-functions.php:715
+msgid "Show invisible Posts"
+msgstr "Zeige nicht sichtbare Artikel"
+
+#: ../general-functions.php:765
+msgid "Slug may not be empty!"
+msgstr "Slug darf nicht leer sein!"
+
+# Doesnt need to be translated.
+#: ../general-functions.php:480
+msgid "Sorry, you do not have the right to publish this post."
+msgstr ""
+"Tut mir leid, du hast nicht das Recht, diesen Beitrag zu veröffentlichen."
+
+#: ../post-functions.php:185 ../post-functions.php:185
+#: ../general-functions.php: 515 ../general-functions.php:515
+#: ../general-functions.php:519 ../general- functions.php:519
+msgid "Stick this post to the front page"
+msgstr "Diesen Beitrag auf der Startseite oben festhalten"
+
+# Doesnt need to be translated.
+#: ../post-functions.php:43
+msgid "Tags"
+msgstr "Tags"
+
+#: ../post-functions.php:196 ../post-functions.php:196 ../page-functions.php:91
+#: .. /page-functions.php:91 ../page-functions.php:91
+#: ../general-functions.php:103 .. /general-functions.php:103
+#: ../general-functions.php:107 ../general-functions. php:107
+msgid "Toggle comment status open/closed"
+msgstr "Kommentar-Status auf offen/geschlossen umschalten"
+
+#: ../post-functions.php:181 ../post-functions.php:181 ../page-functions.php:80
+#: .. /page-functions.php:80 ../general-functions.php:492
+#: ../general-functions.php: 492 ../general-functions.php:497
+#: ../general-functions.php:497 ../link- functions.php:60
+#: ../link-functions.php:60
+msgid "Toggle visibility"
+msgstr "Sichtbarkeit umschalten"
+
+# Doesnt need to be translated.
+#: ../post-functions.php:126 ../general-functions.php:225
+msgid "Uncategorized"
+msgstr "Unkategorisiert"
+
+#: ../general-functions.php:185
+msgid "Uncheck All"
+msgstr "Alle abw&auml;hlen"
+
+# Doesnt need to be translated.
+#: ../link-functions.php:42
+msgid "Visible"
+msgstr "Sichtbar"
+
+# Doesnt need to be translated.
+#: ../general-functions.php:452 ../general-functions.php:461
+msgid "Y/m/d"
+msgstr "d.m.Y"
+
+# Doesnt need to be translated.
+#: ../link-functions.php:59 ../link-functions.php:138
+msgid "Yes"
+msgstr "Ja"
+
+# Doesnt need to be translated.
+#: ../general-functions.php:319 ../general-functions.php:337
+msgid "You are not allowed to change the page author as this user."
+msgstr "Du darfst den Autor der Seite als dieser Benutzer nicht ändern."
+
+# Doesnt need to be translated.
+#: ../general-functions.php:316 ../general-functions.php:334
+msgid "You are not allowed to change the post author as this user."
+msgstr "Du darfst den Autor des Beitrags als dieser Benutzer nicht ändern."
+
+# Doesnt need to be translated.
+#: ../general-functions.php:455
+msgid "You are not allowed to edit this post."
+msgstr "Du bist nicht berechtigt, diesen Beitrag zu bearbeiten."
+
 #: ../admin-management-xtended.php:229
 msgid ""
 "You seem using the <em>Better Tags Manager</em> plugin, which collides with "
@@ -203,128 +341,3 @@ msgstr ""
 "mit dem<em>Admin Management Xtended</em>-Plugin hat, die beide die Tags-"
 "Spalte erweitern. Bitte deaktiviere eines der beiden Plugins, damit diese "
 "Meldung verschwindet."
-
-#: ../admin-management-xtended.php:229
-msgid "(This message was created by Admin Management Xtended plugin)"
-msgstr "(Dieser Hinweis stammt vom Admin Management Xtended Plugin)"
-
-#: ../page-functions.php:57
-msgid "Page Order:"
-msgstr "Seitenreihenfolge"
-
-#: ../page-functions.php:57
-msgid "Post Order:"
-msgstr "Artikelreihenfolge"
-
-#: ../page-functions.php:86 ../page-functions.php:86
-msgid "Edit Page Slug"
-msgstr "Seiten-Slug bearbeiten"
-
-#: ../page-functions.php:97 ../page-functions.php:97 ../page-functions.php:97 ..
-#: general-functions.php:551 ../general-functions.php:551 ../general-functions.
-#: php:551
-msgid "Plugin: Exclude Pages - Exclude page from navigation"
-msgstr "Plugin: Exclude Pages - Seite aus Navigation ausschließen"
-
-#: ../general-functions.php:185
-msgid "Check All"
-msgstr "Alle ausw&auml;hlen"
-
-#: ../general-functions.php:185
-msgid "Uncheck All"
-msgstr "Alle abw&auml;hlen"
-
-#: ../general-functions.php:191 ../general-functions.php:295 ../general-functions.
-#: php:343 ../general-functions.php:765 ../link-functions.php:114
-msgid "Save"
-msgstr "Speichern"
-
-#: ../general-functions.php:193 ../general-functions.php:295 ../general-functions.
-#: php:343 ../general-functions.php:765 ../link-functions.php:114
-msgid "Cancel"
-msgstr "Abbrechen"
-
-#: ../general-functions.php:603
-msgid "Change page order"
-msgstr "Seitenreihenfolge ändern"
-
-#: ../general-functions.php:642
-msgid "Previous Year"
-msgstr "Voriges Jahr"
-
-#: ../general-functions.php:643
-msgid "Previous Month"
-msgstr "Voriger Monat"
-
-#: ../general-functions.php:644
-msgid "Next Year"
-msgstr "Nächstes Jahr"
-
-#: ../general-functions.php:645
-msgid "Next Month"
-msgstr "Nächster Monat"
-
-#: ../general-functions.php:646
-msgid "Close"
-msgstr "Schließen"
-
-#: ../general-functions.php:647
-msgid "Pick Date"
-msgstr "Datum wählen"
-
-#: ../general-functions.php:679
-msgid "Edit Page Order:"
-msgstr "Seitenreihenfolge bearbeiten"
-
-#: ../general-functions.php:680
-msgid "Edit Post Order:"
-msgstr "Artikelreihenfolge bearbeiten"
-
-#: ../general-functions.php:683 ../general-functions.php:690 ../general-functions.
-#: php:697
-msgid "Drag & Drop"
-msgstr "Drag & Drop"
-
-#: ../general-functions.php:686 ../general-functions.php:693 ../general-functions.
-#: php:700
-msgid "Off"
-msgstr "Aus"
-
-#: ../general-functions.php:686 ../general-functions.php:693 ../general-functions.
-#: php:700
-msgid "Direct input"
-msgstr "Direkteingabe"
-
-#: ../general-functions.php:709
-msgid "Hide invisible Posts"
-msgstr "Verstecke nicht sichtbare Artikel"
-
-#: ../general-functions.php:715
-msgid "Show invisible Posts"
-msgstr "Zeige nicht sichtbare Artikel"
-
-# Doesnt need to be translated.
-#: ../general-functions.php:743 ../general-functions.php:756
-msgid "Post Revisions"
-msgstr ""
-
-# Doesnt need to be translated.
-#: ../general-functions.php:754 ../general-functions.php:758
-msgid "Page Revisions"
-msgstr ""
-
-#: ../general-functions.php:765
-msgid "Post"
-msgstr "Artikel"
-
-#: ../general-functions.php:765
-msgid "Please wait..."
-msgstr "Bitte warten..."
-
-#: ../general-functions.php:765
-msgid "Slug may not be empty!"
-msgstr "Slug darf nicht leer sein!"
-
-#: ../general-functions.php:845 ../general-functions.php:845
-msgid "Change image set"
-msgstr "Button-Set ändern"

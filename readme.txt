@@ -3,7 +3,7 @@ Contributors: Alphawolf
 Donate link: https://www.schloebe.de/donate/
 Tags: admin, cms, drag-and-drop, drag drop
 Requires at least: 4.3
-Tested up to: 6.6.99
+Tested up to: 6.8.99
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -72,7 +72,7 @@ It adds some icons to the posts/pages management panel with **AJAX-driven** CMS-
 * Norwegian Bokm&aring;l (nb_NO) (Thanks for contributing norwegian bokm&aring;l language goes to H&aring;vard Grimelid / https://grx.no/)
 * Ukranian (uk_UA) (Thanks for contributing ukranian language goes to ghost / https://antsar.info/)
 * Romanian (ro_RO) (Thanks for contributing romanian language goes to Anunturi Jibo / https://www.jibo.ro)
-* Slovak (sk_SK) (Thanks for contributing slovak language goes to Viliam Brozman / https://www.brozman.sk/blog)
+* Slovak (sk_SK) (Thanks for contributing Slovak language goes to Viliam)
 * Slovenian (sl_SI) (Thanks for contributing slovenian language goes to Mitja Mihelič)
 * Serbo-Croatian (sr_RS) (Thanks for contributing serbo-croatian language goes to Andrijana Nikolic / https://webhostinggeeks.com/)
 * Simplified Chinese (zh_CN) (Thanks for contributing chinese language goes to 斌果)
@@ -103,6 +103,11 @@ Please visit [the official website](https://www.schloebe.de/wordpress/admin-mana
 4. Installation finished.
 
 == Changelog ==
+
+= 2.5.0 =
+* FIXED: WordPress 6.8 compatibility
+* FIXED: Missing text domain in translation function
+* FIXED: Several UI improvements
 
 = 2.4.7 =
 * FIXED: WordPress 6.6 compatibility

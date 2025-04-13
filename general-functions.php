@@ -213,7 +213,7 @@ function ame_ajax_get_categories() {
 	
 	echo '<div id="categorychoose' . esc_attr(intval($ame_id)) . '" class="categorydiv">';
 	echo '<div class="button-group">';
-	echo '<a href="javascript:void(0);" class="button small" onclick="ame_check_all(' . esc_attr(intval($ame_id)) . ', true);">' . __( 'Check All' ) . '</a><a href="javascript:void(0);" class="button small" onclick="ame_check_all(' . esc_attr(intval($ame_id)) . ', false);">' . __( 'Uncheck All' ) . '</a>';
+	echo '<a href="javascript:void(0);" class="button small" onclick="ame_check_all(' . esc_attr(intval($ame_id)) . ', true);">' . __( 'Check All', 'admin-management-xtended' ) . '</a><a href="javascript:void(0);" class="button small" onclick="ame_check_all(' . esc_attr(intval($ame_id)) . ', false);">' . __( 'Uncheck All', 'admin-management-xtended' ) . '</a>';
 	echo '</div><br />';
 	echo '<ul id="categorychecklist" class="list:category categorychecklist form-no-clear" style="height:365px;overflow:auto;">';
 	wp_category_checklist( $ame_id, 0, get_option( 'default_category' ) );
@@ -789,21 +789,21 @@ Date.format = 'yyyy-mm-dd';\n";
 			$dnd_text = ($current_page != 'edit' || ($current_page == 'edit' && isset( $_GET['post_type'] ) && $_GET['post_type'] == 'page')) ? " <a class='page-numbers button hidden' href='javascript:void(0);' onclick='ame_ajax_toggle_orderoptions(2)'>" . __( 'Drag & Drop', 'admin-management-xtended' ) . "</a>" : "";
 			echo "<script type=\"text/javascript\" charset=\"utf-8\">
 jQuery(document).ready(function() {
-  jQuery(\"div.wrap div[class*='tablenav']:first\").prepend(\"<div class='tablenav-pages'>&nbsp;&nbsp;|&nbsp;<span id='ame_order2_loader' class='displaying-num'>" . $ame_column_heading . "</span> <span class='page-numbers current'>" . __( 'Off', 'admin-management-xtended' ) . "</span> <a class='page-numbers button' href='javascript:void(0);' onclick='ame_ajax_toggle_orderoptions(1)'>" . __( 'Direct input', 'admin-management-xtended' ) . "</a>$dnd_text</div>\");
+  jQuery(\"div.wrap div[class*='tablenav']:first\").prepend(\"<div class='alignright tablenav-pages'><span style='margin:0 5px;'>|</span><span id='ame_order2_loader' class='displaying-num'>" . $ame_column_heading . "</span> <span class='pagination-links'><span class='tablenav-pages-navspan button disabled' aria-hidden='true'>" . __( 'Off', 'admin-management-xtended' ) . "</span> <a class='page-numbers button' href='javascript:void(0);' onclick='ame_ajax_toggle_orderoptions(1)'>" . __( 'Direct input', 'admin-management-xtended' ) . "</a>$dnd_text</span></div>\");
 });
 </script>\n";
 		} elseif( get_option( 'ame_show_orderoptions' ) == '1' ) {
 			$dnd_text = ($current_page != 'edit' || ($current_page == 'edit' && isset( $_GET['post_type'] ) && $_GET['post_type'] == 'page')) ? " <a class='page-numbers button hidden' href='javascript:void(0);' onclick='ame_ajax_toggle_orderoptions(2)'>" . __( 'Drag & Drop', 'admin-management-xtended' ) . "</a>" : "";
 			echo "<script type=\"text/javascript\" charset=\"utf-8\">
 jQuery(document).ready(function() {
-   jQuery(\"div.wrap div[class*='tablenav']:first\").prepend(\"<div class='tablenav-pages'>&nbsp;&nbsp;|&nbsp;<span id='ame_order2_loader' class='displaying-num'>" . $ame_column_heading . "</span> <a class='page-numbers button' href='javascript:void(0);' onclick='ame_ajax_toggle_orderoptions(0)'>" . __( 'Off', 'admin-management-xtended' ) . "</a> <span class='page-numbers current'>" . __( 'Direct input', 'admin-management-xtended' ) . "</span>$dnd_text</div>\");
+   jQuery(\"div.wrap div[class*='tablenav']:first\").prepend(\"<div class='alignright tablenav-pages'><span style='margin:0 5px;'>|</span><span id='ame_order2_loader' class='displaying-num'>" . $ame_column_heading . "</span> <a class='page-numbers button' href='javascript:void(0);' onclick='ame_ajax_toggle_orderoptions(0)'>" . __( 'Off', 'admin-management-xtended' ) . "</a> <span class='tablenav-pages-navspan button disabled' aria-hidden='true'>" . __( 'Direct input', 'admin-management-xtended' ) . "</span>$dnd_text</div>\");
 });
 </script>\n";
 		} elseif( get_option( 'ame_show_orderoptions' ) == '2' ) {
 			$dnd_text = ($current_page != 'edit' || ( $current_page == 'edit' && isset($_GET['post_type']) && $_GET['post_type'] == 'page' )) ? " <span class='page-numbers current hidden'>" . __( 'Drag & Drop', 'admin-management-xtended' ) . "<a href='http://wordpress.org/extend/plugins/admin-management-xtended/other_notes/' target='_blank'>[?]</a>" . "</span>" : "";
 			echo "<script type=\"text/javascript\" charset=\"utf-8\">
 jQuery(document).ready(function() {
-   jQuery(\"div.wrap div[class*='tablenav']:first\").prepend(\"<div class='tablenav-pages'>&nbsp;&nbsp;|&nbsp;<span id='ame_ordersave_loader'></span> <span id='ame_order2_loader' class='displaying-num'>" . $ame_column_heading . "</span> <a class='page-numbers button' href='javascript:void(0);' onclick='ame_ajax_toggle_orderoptions(0)'>" . __( 'Off', 'admin-management-xtended' ) . "</a> <a class='page-numbers button' href='javascript:void(0);' onclick='ame_ajax_toggle_orderoptions(1)'>" . __( 'Direct input', 'admin-management-xtended' ) . "</a>$dnd_text</div>\");
+   jQuery(\"div.wrap div[class*='tablenav']:first\").prepend(\"<div class='alignright tablenav-pages'><span style='margin:0 5px;'>|</span><span id='ame_ordersave_loader'></span> <span id='ame_order2_loader' class='displaying-num'>" . $ame_column_heading . "</span> <a class='page-numbers button' href='javascript:void(0);' onclick='ame_ajax_toggle_orderoptions(0)'>" . __( 'Off', 'admin-management-xtended' ) . "</a> <a class='page-numbers button' href='javascript:void(0);' onclick='ame_ajax_toggle_orderoptions(1)'>" . __( 'Direct input', 'admin-management-xtended' ) . "</a>$dnd_text</div>\");
 });
 </script>\n";
 		}
