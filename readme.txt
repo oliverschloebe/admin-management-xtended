@@ -104,6 +104,9 @@ Please visit [the official website](https://www.schloebe.de/wordpress/admin-mana
 
 == Changelog ==
 
+= 2.5.1 =
+* FIXED: ArgumentCountError when using Elegant Themes
+
 = 2.5.0 =
 * FIXED: WordPress 6.8 compatibility
 * FIXED: Missing text domain in translation function

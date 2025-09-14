@@ -8,7 +8,7 @@
  */
 
 /*
- * Copyright 2008-2024 Oliver Schlöbe (email : scripts@schloebe.de)
+ * Copyright 2008-2025 Oliver Schlöbe (email : scripts@schloebe.de)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -188,7 +188,7 @@ function ame_ajax_save_tags() {
 	$ame_post_tags .= '&nbsp;<a id="tageditlink' . esc_attr(intval($postid)) . '" href="javascript:void(0);" onclick="ame_ajax_form_tags(' . esc_attr(intval($postid)) . ', \'' . $ame_post_tags_plain . '\');return false;" title="' . __( 'Edit' ) . '"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'edit_small.gif" border="0" alt="' . __( 'Edit' ) . '" title="' . __( 'Edit' ) . '" /></a>';
 	$post = get_post( $postid );
 	do_action( 'edit_post', $postid, $post );
-	do_action( 'save_post', $postid, $post );
+	do_action( 'save_post', $postid, $post, true );
 	die( "jQuery('span#ame_tags" . esc_attr(intval($postid)) . "').fadeOut('fast', function() {
 		jQuery('span#ame_tags" . esc_attr(intval($postid)) . "').html('" . addslashes_gpc( $ame_post_tags ) . "').fadeIn('fast');
 	});" );
@@ -262,7 +262,7 @@ function ame_ajax_save_categories() {
 		$ame_post_cats = __( 'Uncategorized' );
 	}
 	do_action( 'edit_post', $postid, get_post( $postid ) );
-	do_action( 'save_post', $postid, get_post( $postid ) );
+	do_action( 'save_post', $postid, get_post( $postid ), true );
 	die( "re_init();jQuery('span#ame_category" . esc_attr(intval($postid)) . "').fadeOut('fast', function() {
 		jQuery('a#thickboxlink" . esc_attr(intval($postid)) . "').show();
 		jQuery('span#ame_category" . esc_attr(intval($postid)) . "').html('" . addslashes_gpc( $ame_post_cats ) . "').fadeIn('fast');

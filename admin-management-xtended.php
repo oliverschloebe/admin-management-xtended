@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Admin Management Xtended
-Version: 2.5.0
+Version: 2.5.1
 Plugin URI: https://www.schloebe.de/wordpress/admin-management-xtended-plugin/
 Description: <strong>WordPress 4.3+ only.</strong> Extends admin functionalities by introducing: toggling post/page visibility inline, changing page order with drag'n'drop, inline category management, inline tag management, changing publication date inline, changing post slug inline, toggling comment status open/closed, hide draft posts, change media order, change media description inline, toggling link visibility, changing link categories
 Author: Oliver Schl&ouml;be
@@ -38,7 +38,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 /**
  * Define the plugin version
  */
-define("AME_VERSION", "2.5.0");
+define("AME_VERSION", "2.5.1");
 
 /**
  * Define the global var AMEISWP43, returning bool if WP 4.3 or higher is running
