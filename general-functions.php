@@ -279,6 +279,10 @@ function ame_toggle_showinvisposts() {
 	global $wpdb;
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
 	
+	if( !current_user_can( 'edit_posts' ) ) {
+		die();
+	}
+	
 	$status = intval( $_POST['status'] );
 	
 	update_option( "ame_toggle_showinvisposts", $status );
@@ -293,6 +297,12 @@ function ame_toggle_showinvisposts() {
  */
 function ame_ajax_toggle_imageset() {
 	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
+	if( !current_user_can( 'manage_options' ) ) {
+		die();
+	}
+	
 	$setid = intval( $_POST['setid'] );
 	
 	update_option( "ame_imgset", "set" . $setid );
@@ -308,6 +318,10 @@ function ame_ajax_toggle_imageset() {
 function ame_toggle_orderoptions() {
 	global $wpdb;
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
+	if( !current_user_can( 'edit_pages' ) ) {
+		die();
+	}
 	
 	$status = intval( $_POST['status'] );
 	
