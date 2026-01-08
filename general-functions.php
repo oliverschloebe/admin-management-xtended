@@ -8,7 +8,7 @@
  */
 
 /*
- * Copyright 2008-2025 Oliver Schlöbe (email : scripts@schloebe.de)
+ * Copyright 2008-2026 Oliver Schlöbe (email : scripts@schloebe.de)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -74,12 +74,12 @@ function ame_ajax_save_mediadesc() {
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
 
 	$postid = intval( $_POST['postid'] );
-	$new_mediadesc = sanitize_text_field( $_POST['new_mediadesc'] );
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
 	}
 	
+	$new_mediadesc = sanitize_text_field( $_POST['new_mediadesc'] );
 	$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_excerpt = %s WHERE ID = %d", stripslashes( $new_mediadesc ), $postid ) );
 	$ame_media_desc = '<span id="ame_mediadesc_text' . esc_attr(intval($postid)) . '">' . $new_mediadesc . '</span>';
 	$ame_media_desc .= '&nbsp;<a id="mediadesceditlink' . esc_attr(intval($postid)) . '" href="javascript:void(0);" onclick="ame_ajax_form_mediadesc(' . esc_attr(intval($postid)) . ');return false;" title="' . __( 'Edit' ) . '"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'edit_small.gif" border="0" alt="' . __( 'Edit' ) . '" title="' . __( 'Edit' ) . '" /></a>';
@@ -100,12 +100,12 @@ function ame_ajax_set_commentstatus() {
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
 
 	$postid = intval( $_POST['postid'] );
-	$q_status = intval( $_POST['comment_status'] );
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
 	}
 	
+	$q_status = intval( $_POST['comment_status'] );
 	($q_status == '1') ? $status = 'open' : $status = 'closed';
 	$posttype = 'post';
 	$post = get_post( $postid );
@@ -156,16 +156,15 @@ function ame_get_pageorder() {
  * @author scripts@schloebe.de
  */
 function ame_ajax_save_tags() {
-	global $wpdb;
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
 	
 	$postid = intval( $_POST['postid'] );
-	$ame_tags = sanitize_text_field( $_POST['new_tags'] );
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
 	}
 	
+	$ame_tags = sanitize_text_field( $_POST['new_tags'] );
 	$tagarray = explode( ",", trim( $ame_tags ) );
 	wp_set_post_tags( $postid, $tagarray );
 	unset( $GLOBALS['tag_cache'] );
@@ -202,7 +201,6 @@ function ame_ajax_save_tags() {
  * @uses wp_category_checklist()
  */
 function ame_ajax_get_categories() {
-	global $wpdb, $post;
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
 	
 	$ame_id = intval( $_POST['postid'] );
@@ -235,16 +233,15 @@ function ame_ajax_get_categories() {
  * @author scripts@schloebe.de
  */
 function ame_ajax_save_categories() {
-	global $wpdb, $post;
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
 	
 	$postid = intval( $_POST['postid'] );
-	$ame_cats = sanitize_text_field( $_POST['ame_cats'] );
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
 	}
 	
+	$ame_cats = sanitize_text_field( $_POST['ame_cats'] );
 	$ame_categories = substr( $ame_cats, 0, - 1 );
 	$catarray = explode( ",", $ame_categories );
 	wp_set_post_categories( $postid, $catarray );
@@ -276,8 +273,11 @@ function ame_ajax_save_categories() {
  * @author scripts@schloebe.de
  */
 function ame_toggle_showinvisposts() {
-	global $wpdb;
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
+
+	if( !current_user_can( 'edit_posts' ) ) {
+		die();
+	}
 	
 	$status = intval( $_POST['status'] );
 	
@@ -292,7 +292,12 @@ function ame_toggle_showinvisposts() {
  * @author scripts@schloebe.de
  */
 function ame_ajax_toggle_imageset() {
-	global $wpdb;
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
+	
+	if( !current_user_can( 'manage_options' ) ) {
+		die();
+	}
+
 	$setid = intval( $_POST['setid'] );
 	
 	update_option( "ame_imgset", "set" . $setid );
@@ -306,8 +311,11 @@ function ame_ajax_toggle_imageset() {
  * @author scripts@schloebe.de
  */
 function ame_toggle_orderoptions() {
-	global $wpdb;
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
+
+	if( !current_user_can( 'edit_pages' ) ) {
+		die();
+	}
 	
 	$status = intval( $_POST['status'] );
 	
@@ -351,7 +359,7 @@ function ame_slug_edit() {
  * @author scripts@schloebe.de
  */
 function ame_author_edit() {
-	global $wpdb, $current_user;
+	global $current_user;
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
 	
 	$postid = intval( $_POST['post_id'] );
@@ -406,12 +414,12 @@ function ame_save_order() {
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
 	
 	$postid = intval( $_POST['category_id'] );
-	$neworderid = intval( $_POST['new_orderid'] );
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
 	}
 	
+	$neworderid = intval( $_POST['new_orderid'] );
 	$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET menu_order = %d WHERE ID = %d", $neworderid, $postid ) );
 	die( "jQuery('span#ame_order_loader" . esc_attr(intval($postid)) . "').hide(); jQuery('#post-" . esc_attr(intval($postid)) . " td, #post-" . esc_attr(intval($postid)) . " th').animate( { opacity: 0 }, 300).animate( { opacity: 1 }, 300).animate( { opacity: 0 }, 300).animate( { opacity: 1 }, 300);" );
 }
@@ -493,13 +501,13 @@ function ame_save_title() {
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
 	
 	$postid = intval( $_POST['category_id'] );
-	$new_title = sanitize_text_field( $_POST['new_title'] );
-	$new_title = apply_filters( 'the_title', $new_title );
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
 	}
 	
+	$new_title = sanitize_text_field( $_POST['new_title'] );
+	$new_title = apply_filters( 'the_title', $new_title );
 	$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_title = %s WHERE ID = %d", stripslashes( $new_title ), $postid ) );
 	
 	$post = get_post( $postid );
@@ -594,7 +602,6 @@ function ame_toggle_visibility() {
  * @author scripts@schloebe.de
  */
 function ame_toggle_sticky() {
-	global $wpdb;
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
 	
 	$postid = intval( $_POST['post_id'] );

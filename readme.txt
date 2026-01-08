@@ -3,7 +3,7 @@ Contributors: Alphawolf
 Donate link: https://www.schloebe.de/donate/
 Tags: admin, cms, drag-and-drop, drag drop
 Requires at least: 4.3
-Tested up to: 6.8.99
+Tested up to: 6.9.99
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -103,6 +103,10 @@ Please visit [the official website](https://www.schloebe.de/wordpress/admin-mana
 4. Installation finished.
 
 == Changelog ==
+
+= 2.5.2 =
+* FIXED: WordPress 6.9 compatibility
+* FIXED: Broken Access Control fixed (https://www.cve.org/CVERecord?id=CVE-2025-62965)
 
 = 2.5.1 =
 * FIXED: ArgumentCountError when using Elegant Themes
