@@ -3,7 +3,7 @@ Contributors: Alphawolf
 Donate link: https://www.schloebe.de/donate/
 Tags: admin, cms, drag-and-drop, drag drop
 Requires at least: 4.3
-Tested up to: 7.0.99
+Tested up to: 7.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -16,7 +16,7 @@ As a whole, the new WordPress Admin panel is organized fairly well, however when
 
 It adds some icons to the posts/pages management panel with **AJAX-driven** CMS-known functions like toggling post/page visibility, changing publication date and title **without having to open the edit screens or reload the page**, **plus changing page order with drag'n'drop**, inline category management and inline tag management, plus much more.
 
-[Developer on Twitter](https://twitter.com/wpseek "Developer on Twitter")
+[Developer on Twitter](https://twitter.com/wpseek "Developer on Twitter") [Developer on Bluesky](https://bsky.app/profile/cyberblitzbirne.bsky.social "Developer on Bluesky")
 
 **Looking for more WordPress plugins? Visit [www.schloebe.de/portfolio/](https://www.schloebe.de/portfolio/)**
 
@@ -103,6 +103,15 @@ Please visit [the official website](https://www.schloebe.de/wordpress/admin-mana
 4. Installation finished.
 
 == Changelog ==
+
+= 2.5.3 =
+* FIXED: WordPress 7.1 compatibility
+* FIXED: Broken Access Control in inline visibility toggle - Contributors could publish posts by bypassing the publish_posts check
+* FIXED: Broken Access Control in sticky post toggle - edit_others_posts is now required to stick/unstick posts
+* FIXED: Broken Access Control in inline author change - edit_others_posts is now required to reassign a post's author
+* FIXED: Broken Access Control when scheduling posts via the inline date picker - publish_posts is now required
+* FIXED: Inline link category saving was non-functional due to a nonce mismatch
+* HARDENED: Added output escaping for media descriptions, link categories and post slugs
 
 = 2.5.2 =
 * FIXED: WordPress 6.9 compatibility

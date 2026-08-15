@@ -7,7 +7,7 @@
  */
  
 /*
-Copyright 2008-2024 Oliver Schlöbe (email : webmaster@schloebe.de)
+Copyright 2008-2026 Oliver Schlöbe (email : wordpress@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -32,12 +32,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  * Adds a new 'Media Order' column to the media management view
  *
  * @since 1.4.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
- * @param array
+ * @param array $defaults
  * @return array
  */
-function ame_column_media_order( $defaults ) {
+function ame_column_media_order( array $defaults ) {
     $defaults['ame_media_order'] = '<abbr style="cursor:help;" title="' . __('Enhanced by Admin Management Xtended Plugin', 'admin-management-xtended') . ' ' . get_option("ame_version") . '">' . __('Media Order', 'admin-management-xtended') . '</abbr>';
     return $defaults;
 }
@@ -46,12 +46,12 @@ function ame_column_media_order( $defaults ) {
  * Replaces the media 'Description' column in the media management view
  *
  * @since 1.5.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
- * @param array
+ * @param array $defaults
  * @return array
  */
-function ame_column_media_desc( $defaults ) {
+function ame_column_media_desc( array $defaults ) {
 	unset($defaults['desc']);
     $defaults['ame_media_desc'] = '<abbr style="cursor:help;" title="' . __('Enhanced by Admin Management Xtended Plugin', 'admin-management-xtended') . ' ' . get_option("ame_version") . '">' . __('Description') . '</abbr>';
     return $defaults;
@@ -61,12 +61,12 @@ function ame_column_media_desc( $defaults ) {
  * Adds content to the new 'Media Order' column on the media management view
  *
  * @since 1.4.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
- * @param string
- * @param int
+ * @param string $ame_column_name
+ * @param int $ame_id
  */
-function ame_custom_column_media_order( $ame_column_name, $ame_id ) {
+function ame_custom_column_media_order( string $ame_column_name, int $ame_id ) {
 	global $wpdb;
     if( $ame_column_name == 'ame_media_order' && current_user_can( 'edit_post', $ame_id ) ) {
     	$q_media_order = get_post( $ame_id );
@@ -80,17 +80,17 @@ function ame_custom_column_media_order( $ame_column_name, $ame_id ) {
  * Adds content to the altered media 'Description' column on the media management view
  *
  * @since 1.5.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
- * @param string
- * @param int
+ * @param string $ame_column_name
+ * @param int $ame_id
  */
-function ame_custom_column_media_desc( $ame_column_name, $ame_id ) {
+function ame_custom_column_media_desc( string $ame_column_name, int $ame_id ) {
 	global $wpdb;
     if( $ame_column_name == 'ame_media_desc' ) {
     	$q_media_desc = get_post( $ame_id );
     	$media_desc = $q_media_desc->post_excerpt;
-    	echo '<span id="ame_mediadesc' . esc_attr(intval($ame_id)) . '"><span id="ame_mediadesc_text' . esc_attr(intval($ame_id)) . '">' . $media_desc . '</span>&nbsp;';
+    	echo '<span id="ame_mediadesc' . esc_attr(intval($ame_id)) . '"><span id="ame_mediadesc_text' . esc_attr(intval($ame_id)) . '">' . esc_html( $media_desc ) . '</span>&nbsp;';
 		if( current_user_can( 'edit_post', $ame_id ) ) {
 			echo '<a id="mediadesceditlink' . esc_attr(intval($ame_id)) . '" href="javascript:void(0);" onclick="ame_ajax_form_mediadesc(' . esc_attr(intval($ame_id)) . ');return false;" title="' . __('Edit') . '"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'edit_small.gif" border="0" alt="' . __('Edit') . '" title="' . __('Edit') . '" /></a></span>';
 		}

@@ -8,7 +8,7 @@
  */
 
 /*
- * Copyright 2008-2026 Oliver Schlöbe (email : scripts@schloebe.de)
+ * Copyright 2008-2026 Oliver Schlöbe (email : wordpress@schloebe.de)
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,7 +33,7 @@
  * Checks if a current locale file used for popout calendar exists
  *
  * @since 0.7
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *        
  * @return bool
  */
@@ -52,22 +52,10 @@ function ame_locale_exists() {
 /* ************************************************ */
 
 /**
- * Returns the given parameter instead of echoing it
- *
- * @since 0.7
- * @author scripts@schloebe.de
- *        
- * @return string|int|mixed
- */
-function return_function($output) {
-	return $output;
-}
-
-/**
  * SACK response function for saving media description
  *
  * @since 1.5.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_ajax_save_mediadesc() {
 	global $wpdb;
@@ -85,7 +73,7 @@ function ame_ajax_save_mediadesc() {
 	$ame_media_desc .= '&nbsp;<a id="mediadesceditlink' . esc_attr(intval($postid)) . '" href="javascript:void(0);" onclick="ame_ajax_form_mediadesc(' . esc_attr(intval($postid)) . ');return false;" title="' . __( 'Edit' ) . '"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'edit_small.gif" border="0" alt="' . __( 'Edit' ) . '" title="' . __( 'Edit' ) . '" /></a>';
 	do_action( 'edit_attachment', $postid );
 	die( "jQuery('span#ame_mediadesc" . esc_attr(intval($postid)) . "').fadeOut('fast', function() {
-		jQuery('span#ame_mediadesc" . esc_attr(intval($postid)) . "').html('" . addslashes_gpc( $ame_media_desc ) . "').fadeIn('fast');
+		jQuery('span#ame_mediadesc" . esc_attr(intval($postid)) . "').html('" . wp_slash( $ame_media_desc ) . "').fadeIn('fast');
 	});" );
 }
 
@@ -93,7 +81,7 @@ function ame_ajax_save_mediadesc() {
  * SACK response function for saving comment status for a post
  *
  * @since 1.2.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_ajax_set_commentstatus() {
 	global $wpdb;
@@ -125,7 +113,7 @@ function ame_ajax_set_commentstatus() {
  * SACK response function for saving page order
  *
  * @since 1.1.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_get_pageorder() {
 	global $wpdb;
@@ -153,7 +141,7 @@ function ame_get_pageorder() {
  * SACK response function for saving post tags
  *
  * @since 1.3.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_ajax_save_tags() {
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
@@ -172,8 +160,9 @@ function ame_ajax_save_tags() {
 	$tags = get_the_tags( $postid );
 	$ame_post_tags = '';
 	$ame_post_tags_plain = '';
+	$out = array();
+	$out2 = array();
 	if( ! empty( $tags ) ) {
-		$out = array();
 		foreach ( $tags as $c ) {
 			$out[] = '<a href="edit.php?tag=' . $c->slug . '"> ' . esc_html( sanitize_term_field( 'name', $c->name, $c->term_id, 'post_tag', 'display' ) ) . '</a>';
 			$out2[] = esc_html( sanitize_term_field( 'name', $c->name, $c->term_id, 'post_tag', 'display' ) );
@@ -189,7 +178,7 @@ function ame_ajax_save_tags() {
 	do_action( 'edit_post', $postid, $post );
 	do_action( 'save_post', $postid, $post, true );
 	die( "jQuery('span#ame_tags" . esc_attr(intval($postid)) . "').fadeOut('fast', function() {
-		jQuery('span#ame_tags" . esc_attr(intval($postid)) . "').html('" . addslashes_gpc( $ame_post_tags ) . "').fadeIn('fast');
+		jQuery('span#ame_tags" . esc_attr(intval($postid)) . "').html('" . wp_slash( $ame_post_tags ) . "').fadeIn('fast');
 	});" );
 }
 
@@ -197,7 +186,7 @@ function ame_ajax_save_tags() {
  * SACK response function for getting post categories and compiling them into a category checklist
  *
  * @since 2.3.5
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  * @uses wp_category_checklist()
  */
 function ame_ajax_get_categories() {
@@ -230,7 +219,7 @@ function ame_ajax_get_categories() {
  * SACK response function for saving post categories
  *
  * @since 1.2.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_ajax_save_categories() {
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
@@ -262,7 +251,7 @@ function ame_ajax_save_categories() {
 	do_action( 'save_post', $postid, get_post( $postid ), true );
 	die( "re_init();jQuery('span#ame_category" . esc_attr(intval($postid)) . "').fadeOut('fast', function() {
 		jQuery('a#thickboxlink" . esc_attr(intval($postid)) . "').show();
-		jQuery('span#ame_category" . esc_attr(intval($postid)) . "').html('" . addslashes_gpc( $ame_post_cats ) . "').fadeIn('fast');
+		jQuery('span#ame_category" . esc_attr(intval($postid)) . "').html('" . wp_slash( $ame_post_cats ) . "').fadeIn('fast');
 	});" );
 }
 
@@ -270,7 +259,7 @@ function ame_ajax_save_categories() {
  * SACK response function for saving draft post visibility option
  *
  * @since 0.9
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_toggle_showinvisposts() {
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
@@ -289,7 +278,7 @@ function ame_toggle_showinvisposts() {
  * SACK response function for toggling button image sets option
  *
  * @since 1.3.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_ajax_toggle_imageset() {
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
@@ -308,7 +297,7 @@ function ame_ajax_toggle_imageset() {
  * SACK response function for saving order input option
  *
  * @since 1.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_toggle_orderoptions() {
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
@@ -327,28 +316,33 @@ function ame_toggle_orderoptions() {
  * SACK response function for displaying the slug edit form inline
  *
  * @since 1.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_slug_edit() {
 	global $wpdb;
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
 	
+	$posttype = 'post';
 	$postid = intval( $_POST['category_id'] );
 	if( is_string( $_POST['posttype'] ) ) $posttype = sanitize_text_field( $_POST['posttype'] );
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
 	}
-	
-	if( $posttype == 'post' ) {
-		$postnumber = '1';
-	} elseif( $posttype == 'page' ) {
-		$postnumber = '2';
+
+	$postnumber = '1';
+	switch ($posttype) {
+		case 'post':
+			$postnumber = '1';
+			break;
+		case 'page':
+			$postnumber = '2';
+			break;
 	}
 	$curpostslug = $wpdb->get_var( $wpdb->prepare( "SELECT post_name FROM $wpdb->posts WHERE ID = %d", $postid ) );
 	$cols = intval( $_POST['col_no'] );
 	
-	$addHTML = "<tr id='alterpost-" . esc_attr(intval($postid)) . "' class='author-other status-publish' valign='middle'><td colspan='" . $cols . "' align='center'> <input type='text' value='" . $curpostslug . "' size='50' id='ame_slug" . esc_attr(intval($postid)) . "' /> <div class='button-group'><input value='" . __( 'Save' ) . "' class='button button-primary primary small' type='button' onclick='ame_ajax_slug_save(" . esc_attr(intval($postid)) . ", " . $postnumber . ");' /><input value='" . __( 'Cancel' ) . "' class='button button-secondary secondary small' type='button' onclick='ame_edit_cancel(" . esc_attr(intval($postid)) . ");' /></div></td></tr>";
+	$addHTML = "<tr id='alterpost-" . esc_attr(intval($postid)) . "' class='author-other status-publish' valign='middle'><td colspan='" . $cols . "' align='center'> <input type='text' value='" . esc_attr( $curpostslug ) . "' size='50' id='ame_slug" . esc_attr(intval($postid)) . "' /> <div class='button-group'><input value='" . __( 'Save' ) . "' class='button button-primary primary small' type='button' onclick='ame_ajax_slug_save(" . esc_attr(intval($postid)) . ", " . $postnumber . ");' /><input value='" . __( 'Cancel' ) . "' class='button button-secondary secondary small' type='button' onclick='ame_edit_cancel(" . esc_attr(intval($postid)) . ");' /></div></td></tr>";
 	die( "jQuery('#post-" . esc_attr(intval($postid)) . "').after( \"" . $addHTML . "\" ); jQuery('#post-" . esc_attr(intval($postid)) . "').hide();" );
 }
 
@@ -356,7 +350,7 @@ function ame_slug_edit() {
  * SACK response function for displaying the author edit form inline
  *
  * @since 1.7.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_author_edit() {
 	global $current_user;
@@ -368,12 +362,17 @@ function ame_author_edit() {
 		die();
 	}
 	
+	$posttype = 'post';
+	$typenumber = '1';
 	$cols = intval( $_POST['col_no'] );
 	if( is_string( $_POST['posttype'] ) ) $posttype = sanitize_text_field( $_POST['posttype'] );
-	if( $posttype == 'post' ) {
-		$typenumber = '1';
-	} elseif( $posttype == 'page' ) {
-		$typenumber = '2';
+	switch ($posttype) {
+		case 'post':
+			$typenumber = '1';
+			break;
+		case 'page':
+			$typenumber = '2';
+			break;
 	}
 	if( $typenumber == '1' && ! current_user_can( 'edit_post', $postid ) ) {
 		die( "alert('" . esc_js( __( 'You are not allowed to change the post author as this user.' ) ) . "');" );
@@ -407,7 +406,7 @@ function ame_author_edit() {
  * SACK response function for saving page order from direct input
  *
  * @since 1.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_save_order() {
 	global $wpdb;
@@ -428,7 +427,7 @@ function ame_save_order() {
  * SACK response function for saving page slug
  *
  * @since 1.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_save_slug() {
 	global $wpdb;
@@ -446,11 +445,16 @@ function ame_save_slug() {
 		$new_slug = $postinfo['post_title'];
 	}
 	$new_slug = sanitize_title( $new_slug );
+	$posttype = '1';
 	if( is_string( $_POST['typenumber'] ) ) $posttype = sanitize_text_field( $_POST['typenumber'] );
-	if( $posttype == '1' ) {
-		$posttype = 'post';
-	} elseif( $posttype == '2' ) {
-		$posttype = 'page';
+
+	switch ($posttype) {
+		case '1':
+			$posttype = 'post';
+			break;
+		case '2':
+			$posttype = 'page';
+			break;
 	}
 	
 	$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_name = %s WHERE ID = %d", $new_slug, $postid ) );
@@ -464,7 +468,7 @@ function ame_save_slug() {
  * SACK response function for saving post author
  *
  * @since 1.7.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_save_author() {
 	global $wpdb;
@@ -476,12 +480,23 @@ function ame_save_author() {
 		die();
 	}
 	
+	if( !current_user_can( 'edit_others_posts' ) ) {
+		die();
+	}
+	
 	$newauthorid = intval( $_POST['newauthor'] );
+	if( ! get_userdata( $newauthorid ) ) {
+		die();
+	}
 	if( is_string( $_POST['typenumber'] ) ) $posttype = sanitize_text_field( $_POST['typenumber'] );
-	if( $posttype == '1' ) {
-		$posttype = 'post';
-	} elseif( $posttype == '2' ) {
-		$posttype = 'page';
+	$posttype = '1';
+	switch ($posttype) {
+		case '1':
+			$posttype = 'post';
+			break;
+		case '2':
+			$posttype = 'page';
+			break;
 	}
 	
 	$post = get_post( $postid );
@@ -494,7 +509,7 @@ function ame_save_author() {
  * SACK response function for saving post//page title
  *
  * @since 0.7
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_save_title() {
 	global $wpdb;
@@ -519,13 +534,14 @@ function ame_save_title() {
  * SACK response function for saving post/page date
  *
  * @since 0.7
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_set_date() {
 	global $wpdb;
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
 	
 	$postid = intval( substr( $_POST['category_id'], 10, 5 ) );
+	$posttype = 'post';
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
 		die();
@@ -534,6 +550,10 @@ function ame_set_date() {
 	$newpostdate = date( "Y-m-d H:i:s", strtotime( $_POST['pickedDate'] ) );
 	$newpostdate_gmt = get_gmt_from_date( $newpostdate );
 	if( is_string( $_POST['posttype'] ) ) $posttype = sanitize_text_field( $_POST['posttype'] );
+	
+	if( strtotime( current_time( 'mysql' ) ) < strtotime( $newpostdate ) && ! current_user_can( 'publish_posts' ) ) {
+		die( "alert('" . esc_js( __( 'You are not allowed to schedule this post.' ) ) . "');" );
+	}
 	
 	$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_date = %s WHERE ID = %d", $newpostdate, $postid ) );
 	$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_date_gmt = %s WHERE ID = %d", $newpostdate_gmt, $postid ) );
@@ -557,7 +577,7 @@ function ame_set_date() {
  * SACK response function for toggling post/page visibility
  *
  * @since 0.7
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_toggle_visibility() {
 	global $wpdb;
@@ -569,15 +589,24 @@ function ame_toggle_visibility() {
 		die();
 	}
 	
+	$status = 'draft';
+	$posttype = 'post';
 	if( is_string( $_POST['vis_status'] ) ) $status = sanitize_text_field( $_POST['vis_status'] );
 	if( is_string( $_POST['posttype'] ) ) $posttype = sanitize_text_field( $_POST['posttype'] );
 	$post_status = get_post_status( $postid );
 	
+	$allowed_statuses = array( 'publish', 'draft', 'pending', 'private' );
+	if( ! in_array( $status, $allowed_statuses, true ) ) {
+		die();
+	}
+	
 	if( $status == 'publish' ) {
-		if( $posttype == 'post' && ! current_user_can( 'publish_posts' ) ) {
+		$post_type_obj = get_post_type_object( get_post_type( $postid ) );
+		$publish_cap = ( $post_type_obj && isset( $post_type_obj->cap->publish_posts ) ) ? $post_type_obj->cap->publish_posts : 'publish_posts';
+		if( ! current_user_can( $publish_cap ) ) {
 			die( "alert('" . esc_js( __( 'Sorry, you do not have the right to publish this post.' ) ) . "');" );
 		}
-		if( $posttype == 'post' && $post_status == 'pending' ) {
+		if( $post_status == 'pending' ) {
 			$postdate = current_time( 'mysql' );
 			$postdate_gmt = get_gmt_from_date( $postdate );
 			$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->posts SET post_date = %s WHERE ID = %d", $postdate, $postid ) );
@@ -599,7 +628,7 @@ function ame_toggle_visibility() {
  * SACK response function for toggling post/page sticky
  *
  * @since 2.3.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_toggle_sticky() {
 	check_ajax_referer( 'ame_ajax_validation', 'security' );
@@ -607,6 +636,10 @@ function ame_toggle_sticky() {
 	$postid = intval( $_POST['post_id'] );
 	
 	if( !current_user_can( 'edit_post', $postid ) ) {
+		die();
+	}
+	
+	if( !current_user_can( 'edit_others_posts' ) ) {
 		die();
 	}
 	
@@ -627,7 +660,7 @@ function ame_toggle_sticky() {
  * SACK response function for toggling page exclusion status
  *
  * @since 2.1.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  * @link http://plugins.trac.wordpress.org/browser/exclude-pages/trunk/exclude_pages.php#L162
  */
 function ame_toggle_excludestatus() {
@@ -643,6 +676,7 @@ function ame_toggle_excludestatus() {
 	
 	$pageid = intval( $_POST['pageid'] );
 	$statusid = intval( $_POST['statusid'] );
+	/** @disregard PHP0417 */
 	$excluded_ids = ep_get_excluded_ids();
 	if( $statusid == 1 ) {
 		array_push( $excluded_ids, $pageid );
@@ -652,6 +686,7 @@ function ame_toggle_excludestatus() {
 		if( $index !== false ) unset( $excluded_ids[$index] );
 	}
 	$excluded_ids_str = implode( ',', $excluded_ids );
+	/** @disregard PHP0417,PHP0415 */
 	ep_set_option( EP_OPTION_NAME, $excluded_ids_str, "Comma separated list of post and page IDs to exclude when returning pages from the get_pages function." );
 	
 	if( $statusid == 0 ) {
@@ -694,7 +729,7 @@ if( function_exists( 'add_action' ) ) {
  * Writes the javascript stuff into page header needed for the JS popout calendar
  *
  * @since 0.7
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  * @author Jeff Cole <upekshapriya@coolcave.co.uk>
  */
 function ame_js_jquery_datepicker_header() {
@@ -846,7 +881,7 @@ jQuery(document).ready(function() {
  * Writes javascript stuff into page header needed for the plugin and calls for the SACK library
  *
  * @since 0.7
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_js_admin_header() {
 	wp_print_scripts( array(
@@ -887,7 +922,7 @@ ameAjaxL10n = {
  * Writes the css stuff into page header needed for the plugin
  *
  * @since 1.2.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_css_admin_header() {
 	$current_page = basename( $_SERVER['PHP_SELF'], ".php" );
@@ -945,11 +980,12 @@ jQuery(document).ready(function() {
  * Returns the output for the 'change image set' link
  *
  * @since 1.3.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *        
  * @return string
  */
 function ame_changeImgSet() {
+	$imgset = '2';
 	if( get_option( "ame_imgset" ) == 'set1' ) {
 		$imgset = '2';
 	} elseif( get_option( "ame_imgset" ) == 'set2' ) {

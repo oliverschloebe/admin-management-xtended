@@ -7,7 +7,7 @@
  */
  
 /*
-Copyright 2008-2024 Oliver Schlöbe (email : scripts@schloebe.de)
+Copyright 2008-2026 Oliver Schlöbe (email : wordpress@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  * Add a new 'Actions' column to the page management view
  *
  * @since 0.7
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
  * @param array $defaults
  * @return array $defaults
@@ -46,7 +46,7 @@ function ame_column_page_actions( $defaults ) {
  * Add a new 'Page Order' column to the page management view
  *
  * @since 1.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  * @author Jeff Cole <upekshapriya@coolcave.co.uk>
  *
  * @param array $defaults
@@ -64,7 +64,7 @@ function ame_column_page_order( $defaults ) {
  * Adds content to the new 'Actions' column on the page management view
  *
  * @since 0.7
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
  * @param string $ame_column_name
  * @param int $ame_id
@@ -92,6 +92,7 @@ function ame_custom_column_page_actions( $ame_column_name, $ame_id ) {
 		
 		// Plugin: Exclude Pages
 		if( is_plugin_active( 'exclude-pages/exclude_pages.php' ) ) {
+			/** @disregard PHP0417 */
 			$excluded_pages = ep_get_excluded_ids();
     		if( in_array( $ame_id, $excluded_pages ) ) { $e_status = 0; $e_img = ''; } else { $e_status = 1; $e_img = '_off'; }
 			echo '<div id="excludepagewrap' . esc_attr(intval($ame_id)) . '" style="padding:1px;float:left;"><a tip="' . __('Plugin: Exclude Pages - Exclude page from navigation', 'admin-management-xtended') . '" href="javascript:void(0);" onclick="ame_ajax_set_excludestatus(' . esc_attr(intval($ame_id)) . ', ' . $e_status . ');return false;"><img src="' . AME_PLUGINFULLURL . 'img/' . AME_IMGSET . 'excludepages' . $e_img . '.gif" border="0" alt="' . __('Plugin: Exclude Pages - Exclude page from navigation', 'admin-management-xtended') . '" title="' . __('Plugin: Exclude Pages - Exclude page from navigation', 'admin-management-xtended') . '" /></a></div>';
@@ -112,7 +113,7 @@ function ame_custom_column_page_actions( $ame_column_name, $ame_id ) {
  * Dikla added $q_post_order->post_type to save order js function line 129.
  * @since 1.0
  * @author Dikla Shwartz <dikla@opentech.co.il>
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
  * @param string $ame_column_name
  * @param int $ame_id

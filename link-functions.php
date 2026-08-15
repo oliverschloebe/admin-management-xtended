@@ -7,7 +7,7 @@
  */
  
 /*
-Copyright 2008-2024 Oliver Schlöbe (email : scripts@schloebe.de)
+Copyright 2008-2026 Oliver Schlöbe (email : wordpress@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -32,12 +32,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  * Adds a new 'Link Visibility' column to the link management panel
  *
  * @since 1.8.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
- * @param array
+ * @param array $defaults
  * @return array
  */
-function ame_column_link_visibility( $defaults ) {
+function ame_column_link_visibility( array $defaults ) {
 	unset( $defaults['visible'] );
     $defaults['ame_link_visibility'] = '<abbr style="cursor:help;" title="' . __('Enhanced by Admin Management Xtended Plugin', 'admin-management-xtended') . ' ' . get_option("ame_version") . '">' . __('Visible') . '</abbr>';
     return $defaults;
@@ -47,12 +47,12 @@ function ame_column_link_visibility( $defaults ) {
  * Adds content to the new 'Link Visibility' column in the link management panel
  *
  * @since 1.8.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
- * @param string
- * @param int
+ * @param string $ame_column_name
+ * @param int $ame_id
  */
-function ame_custom_column_link_visibility( $ame_column_name, $ame_id ) {
+function ame_custom_column_link_visibility( string $ame_column_name, int $ame_id ) {
 	global $wpdb;
     if( $ame_column_name == 'ame_link_visibility' && current_user_can( 'manage_links', $ame_id ) ) {
     	$link = get_bookmark( $ame_id );
@@ -68,12 +68,12 @@ add_filter('manage_link-manager_columns', 'ame_column_link_visibility', 3, 2);
  * Adds a new 'Link Categories' column to the link management panel
  *
  * @since 1.8.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
- * @param array
+ * @param array $defaults
  * @return array
  */
-function ame_column_link_categories( $defaults ) {
+function ame_column_link_categories( array $defaults ) {
 	unset( $defaults['categories'] );
     $defaults['ame_link_categories'] = '<abbr style="cursor:help;" title="' . __('Enhanced by Admin Management Xtended Plugin', 'admin-management-xtended') . ' ' . get_option("ame_version") . '">' . __('Categories') . '</abbr>';
     return $defaults;
@@ -83,12 +83,12 @@ function ame_column_link_categories( $defaults ) {
  * Adds content to the new 'Link Categories' column in the link management panel
  *
  * @since 1.8.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
- * @param string
- * @param int
+ * @param string $ame_column_name
+ * @param int $ame_id
  */
-function ame_custom_column_link_categories( $ame_column_name, $ame_id ) {
+function ame_custom_column_link_categories( string $ame_column_name, int $ame_id ) {
 	global $wpdb;
     if( $ame_column_name == 'ame_link_categories' && current_user_can( 'manage_links', $ame_id ) ) {
     	$link = get_bookmark( $ame_id );
@@ -97,9 +97,9 @@ function ame_custom_column_link_categories( $ame_column_name, $ame_id ) {
 			$cat = get_term($category, 'link_category', OBJECT, 'display');
 			if ( is_wp_error( $cat ) )
 				echo $cat->get_error_message();
-			$cat_name = $cat->name;
+			$cat_name = esc_html( $cat->name );
 			if ( $ame_id != $category )
-				$cat_name = "<a href='link-manager.php?cat_id=$category'>$cat_name</a>";
+				$cat_name = "<a href='link-manager.php?cat_id=" . esc_attr( $category ) . "'>$cat_name</a>";
 			$cat_names[] = $cat_name;
 		}
 		$ame_link_cats = implode(', ', $cat_names);
@@ -125,7 +125,7 @@ add_filter('manage_link-manager_columns', 'ame_column_link_categories', 2, 2);
  * SACK response function for toggling link visibility
  *
  * @since 1.8.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_toggle_linkvisibility() {
 	global $wpdb;
@@ -143,18 +143,18 @@ function ame_toggle_linkvisibility() {
 	$wpdb->query( $wpdb->prepare( "UPDATE $wpdb->links SET link_visible = %s WHERE link_id = %d", $status, $linkid ) );
 	do_action( 'edit_link', $linkid );
 	$visible = ($link->link_visible == 'Y') ? __('No') : __('Yes');
-	die( "jQuery('span#ame_linkvis" . esc_attr(intval($linkid)) . "').text('" . addslashes_gpc( $visible ) . "');jQuery('#" . $posttype . "-" . esc_attr(intval($linkid)) . " td, #" . $posttype . "-" . esc_attr(intval($linkid)) . " th').animate( { backgroundColor: '#EAF3FA' }, 300).animate( { backgroundColor: '#F9F9F9' }, 300).animate( { backgroundColor: '#EAF3FA' }, 300).animate( { backgroundColor: '#F9F9F9' }, 300);" );
+	die( "jQuery('span#ame_linkvis" . esc_attr(intval($linkid)) . "').text('" . wp_slash( $visible ) . "');jQuery('#" . $posttype . "-" . esc_attr(intval($linkid)) . " td, #" . $posttype . "-" . esc_attr(intval($linkid)) . " th').animate( { backgroundColor: '#EAF3FA' }, 300).animate( { backgroundColor: '#F9F9F9' }, 300).animate( { backgroundColor: '#EAF3FA' }, 300).animate( { backgroundColor: '#F9F9F9' }, 300);" );
 }
 
 /**
  * SACK response function for saving link categories
  *
  * @since 1.8.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  */
 function ame_ajax_save_linkcategories() {
 	global $wpdb;
-	check_ajax_referer( 'ame_ajax_save_linkcategories' );
+	check_ajax_referer( 'ame_ajax_validation', 'security' );
 	
 	$linkid = intval($_POST['linkid']);
 	$ame_linkcats = sanitize_text_field( $_POST['ame_linkcats'] );
@@ -175,15 +175,15 @@ function ame_ajax_save_linkcategories() {
 		$cat = get_term($category, 'link_category', OBJECT, 'display');
 		if ( is_wp_error( $cat ) )
 			echo $cat->get_error_message();
-		$cat_name = $cat->name;
+		$cat_name = esc_html( $cat->name );
 		if ( $linkid != $category )
-			$cat_name = "<a href='link-manager.php?cat_id=$category'>$cat_name</a>";
+			$cat_name = "<a href='link-manager.php?cat_id=" . esc_attr( $category ) . "'>$cat_name</a>";
 		$cat_names[] = $cat_name;
 	}
 	$ame_link_cats = implode(', ', $cat_names);
 	die( "re_init();jQuery('span#ame_linkcategory" . esc_attr(intval($linkid)) . "').fadeOut('fast', function() {
 		jQuery('a#thickboxlink" . esc_attr(intval($linkid)) . "').show();
-		jQuery('span#ame_linkcategory" . esc_attr(intval($linkid)) . "').html('" . addslashes_gpc( $ame_link_cats ) . "').fadeIn('fast');
+		jQuery('span#ame_linkcategory" . esc_attr(intval($linkid)) . "').html('" . wp_slash( $ame_link_cats ) . "').fadeIn('fast');
 	});" );
 }
 

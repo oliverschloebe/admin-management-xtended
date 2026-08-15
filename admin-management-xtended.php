@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Admin Management Xtended
-Version: 2.5.2
+Version: 2.5.3
 Plugin URI: https://www.schloebe.de/wordpress/admin-management-xtended-plugin/
 Description: <strong>WordPress 4.3+ only.</strong> Extends admin functionalities by introducing: toggling post/page visibility inline, changing page order with drag'n'drop, inline category management, inline tag management, changing publication date inline, changing post slug inline, toggling comment status open/closed, hide draft posts, change media order, change media description inline, toggling link visibility, changing link categories
 Author: Oliver Schl&ouml;be
@@ -10,7 +10,7 @@ Text Domain: admin-management-xtended
 Domain Path: /languages
 
 
-Copyright 2008-2026 Oliver Schlöbe (email : scripts@schloebe.de)
+Copyright 2008-2026 Oliver Schlöbe (email : wordpress@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -38,7 +38,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 /**
  * Define the plugin version
  */
-define("AME_VERSION", "2.5.2");
+const AME_VERSION = "2.5.3";
 
 /**
  * Define the global var AMEISWP43, returning bool if WP 4.3 or higher is running
@@ -82,7 +82,7 @@ define("AME_IMGSET", get_option("ame_imgset") . "/" );
 * @package WordPress_Plugins
 * @subpackage AdminManagementXtended
 * @since 1.4.0
-* @author scripts@schloebe.de
+* @author wordpress@schloebe.de
 */
 class AdminManagementXtended {
 	private $textdomain_loaded = false;
@@ -94,7 +94,7 @@ class AdminManagementXtended {
 	* PHP 5 Constructor
  	*
  	* @since 2.3.9
- 	* @author scripts@schloebe.de
+ 	* @author wordpress@schloebe.de
  	*/
 	function __construct() {
 		if( ISINSTBTM ) {
@@ -159,7 +159,7 @@ class AdminManagementXtended {
 	* PHP 4 Compatible Constructor
  	*
  	* @since 2.3.9
- 	* @author scripts@schloebe.de
+ 	* @author wordpress@schloebe.de
  	*/
 	function AdminManagementXtended() {
 		$this->__construct();
@@ -170,7 +170,7 @@ class AdminManagementXtended {
 	 * Fires several actions, depending on type
 	 *
 	 * @since 1.8.6
-	 * @author scripts@schloebe.de
+	 * @author wordpress@schloebe.de
 	 */
 	static function fireActions( $type, $postid, $post ) {
 		switch( $type ) {
@@ -185,7 +185,7 @@ class AdminManagementXtended {
  	* Initialize and load the plugin textdomain
  	*
  	* @since 1.8.5
- 	* @author scripts@schloebe.de
+ 	* @author wordpress@schloebe.de
  	*/
 	function ame_load_textdomain() {
 		if($this->textdomain_loaded) return;
@@ -199,7 +199,7 @@ class AdminManagementXtended {
  	* if WP version is >= 4.3 which isnt supported
  	*
  	* @since 2.4.0
- 	* @author scripts@schloebe.de
+ 	* @author wordpress@schloebe.de
  	*/
 	function wpVersionFailed() {
 		echo "<div id='amewpversionfailedmessage' class='error fade'><p>" . sprintf(__("<strong>Admin Management Xtended</strong> 2.4.0 and above require at least WordPress 4.3! If you're still using a WP version prior to 4.3, please <a href='%s'>use Admin Management Xtended version 2.3.9.4</a>! Consider updating to the latest WP version for your own safety!", 'admin-management-xtended'), 'https://downloads.wordpress.org/plugin/admin-management-xtended.zip') . "</p></div>";
@@ -211,7 +211,7 @@ class AdminManagementXtended {
  	* and adds a message to inform the user
  	*
  	* @since 1.4.0
- 	* @author scripts@schloebe.de
+ 	* @author wordpress@schloebe.de
  	*/
 	function wpBTMIncompCheck() {
 		echo "<div id='wpbtmincompmessage' class='error fade'><p>" . __("You seem using the <em>Better Tags Manager</em> plugin, which collides with the <em>Admin Management Xtended</em> plugin since both extend the tags column. Please deactivate one of both to make this message disappear.", 'admin-management-xtended') . "</p><p align='right' style='font-weight:200;'><small><em>" . __('(This message was created by Admin Management Xtended plugin)', 'admin-management-xtended') . "</em></small></p></div>";

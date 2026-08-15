@@ -7,7 +7,7 @@
  */
  
 /*
-Copyright 2008-2024 Oliver Schlöbe (email : scripts@schloebe.de)
+Copyright 2008-2026 Oliver Schlöbe (email : wordpress@schloebe.de)
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -33,12 +33,12 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  * Modifies the 'Tags' column header on the post management view
  *
  * @since 1.3.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
- * @param array
+ * @param array $defaults
  * @return array
  */
-function ame_column_tag_actions( $defaults ) {
+function ame_column_tag_actions( array $defaults ) {
 	unset($defaults['tags']);
 	$defaults['ame_tag_actions'] = '<abbr style="cursor:help;" title="' . __('Enhanced by Admin Management Xtended Plugin', 'admin-management-xtended') . ' ' . get_option("ame_version") . '">' . __('Tags') . '</abbr>';
 	return $defaults;
@@ -48,18 +48,19 @@ function ame_column_tag_actions( $defaults ) {
  * Adds content to the modified 'Tags' column on the post management view
  *
  * @since 1.3.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
- * @param string
- * @param int
+ * @param string $ame_column_name
+ * @param int $ame_id
  */
-function ame_custom_column_tag_actions( $ame_column_name, $ame_id ) {
+function ame_custom_column_tag_actions( string $ame_column_name, int $ame_id ) {
 	global $wpdb, $locale;
 	if( $ame_column_name == 'ame_tag_actions' ) {
 		$tags = get_the_tags( $ame_id );
 		$ame_post_tags = $ame_post_tags_plain = '';
+		$out = array();
+		$out2 = array();
 		if ( !empty( $tags ) ) {
-			$out = array();
 			foreach ( $tags as $c ) {
 				$out[] = '<a href="edit.php?tag=' . $c->slug . '"> ' . esc_html(sanitize_term_field('name', $c->name, $c->term_id, 'post_tag', 'display')) . '</a>';
 				$out2[] = esc_html(sanitize_term_field('name', $c->name, $c->term_id, 'post_tag', 'display'));
@@ -88,12 +89,12 @@ add_filter('manage_posts_columns', 'ame_column_tag_actions', 2, 1);
  * Modifies the 'Category' column header on the post management view
  *
  * @since 1.3.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
- * @param array
+ * @param array $defaults
  * @return array
  */
-function ame_column_category_actions( $defaults ) {
+function ame_column_category_actions( array $defaults ) {
 	unset($defaults['categories']);
 	if( isset($defaults['tags']) && $defaults['tags'] ) {
 		$defaults['ame_cat_actions'] = '<abbr style="cursor:help;" title="' . __('Enhanced by Admin Management Xtended Plugin', 'admin-management-xtended') . ' ' . get_option("ame_version") . '">' . __('Categories') . '</abbr>';
@@ -105,12 +106,12 @@ function ame_column_category_actions( $defaults ) {
  * Adds content to the modified 'Category' column on the post management view
  *
  * @since 1.2.0
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
- * @param string
- * @param int
+ * @param string $ame_column_name
+ * @param int $ame_id
  */
-function ame_custom_column_category_actions( $ame_column_name, $ame_id ) {
+function ame_custom_column_category_actions( string $ame_column_name, int $ame_id ) {
 	global $wpdb, $locale;
 	
 	if( $ame_column_name == 'ame_cat_actions' ) {
@@ -151,12 +152,12 @@ add_filter('manage_posts_columns', 'ame_column_category_actions', 1, 1);
  * Add a new 'Actions' column to the post management view
  *
  * @since 0.7
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
- * @param array
+ * @param array $defaults
  * @return array
  */
-function ame_column_post_actions( $defaults ) {
+function ame_column_post_actions( array $defaults ) {
 	$defaults['ame_post_actions'] = '<abbr style="cursor:help;" title="' . __('Enhanced by Admin Management Xtended Plugin', 'admin-management-xtended') . ' ' . get_option("ame_version") . '">' . __('Actions', 'admin-management-xtended') . '</abbr>' . ame_changeImgSet();
 	return $defaults;
 }
@@ -165,12 +166,12 @@ function ame_column_post_actions( $defaults ) {
  * Adds content to the new 'Actions' column on the post management view
  *
  * @since 0.7
- * @author scripts@schloebe.de
+ * @author wordpress@schloebe.de
  *
- * @param string
- * @param int
+ * @param string $ame_column_name
+ * @param int $ame_id
  */
-function ame_custom_column_post_actions( $ame_column_name, $ame_id ) {
+function ame_custom_column_post_actions( string $ame_column_name, int $ame_id ) {
 	global $wpdb, $locale;
 	if( $ame_column_name == 'ame_post_actions' && current_user_can( 'edit_post', $ame_id ) ) {
     	$post_status = get_post_status($ame_id); $q_post = get_post($ame_id);
